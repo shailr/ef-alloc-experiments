@@ -71,7 +71,7 @@ for s in range(10, 20):
 
         V = []
         for index, i in enumerate(N):
-            v_ijjp1 = np.random.random_sample(len(R)//2) * 0
+            v_ijjp1 = np.random.random_sample(len(R)//2) * 100
             V.append(v_ijjp1)
 
         nashp_alloc = optimal_nash_prod_wcomp(U, V)
