@@ -11,6 +11,12 @@ def complementing_utility(alloc, utility, p_utility) :
         pairwise_alloc.append(alloc[i] & alloc[i+1])
     return additive_utililty(alloc, utility) + additive_utililty(pairwise_alloc, p_utility)
 
+def substitutive_utility(alloc, utility, p_utility) :
+    pairwise_alloc = []
+    for i in range(0, len(alloc), 2):
+        pairwise_alloc.append(alloc[i] & alloc[i+1])
+    return additive_utililty(alloc, utility) + additive_utililty(pairwise_alloc, p_utility)
+
 def envyMap(allocs, utilities, p_utilities):
     size_agents = np.array(allocs).shape[0]
     envy_map = np.zeros((size_agents, size_agents))
@@ -82,13 +88,14 @@ def envyMap_upto2(allocs, utilities, p_utilities):
     return envy_map
 
 def ef_percent(dir_name):
+    ret_map = {}
     Us, Vs, As = readdat(dir_name)
     Us = np.array(Us)
     Vs = np.array(Vs)
     As = np.array(As)
-    print("Us shape :", Us.shape)
-    print("Vs shape :", Vs.shape)
-    print("As shape :", As.shape)
+    # print("Us shape :", Us.shape)
+    # print("Vs shape :", Vs.shape)
+    # print("As shape :", As.shape)
     
     ef_map = []
     envymap0 = []
@@ -101,7 +108,8 @@ def ef_percent(dir_name):
     ef_map = np.array(ef_map)
     envymap0 = np.array(envymap0)
     # print(ef_map)
-    print("EF0 percent : ", np.sum(ef_map)/len(ef_map) * 100)
+    ret_map["ef0_percent"] = np.sum(ef_map)/len(ef_map) * 100
+    # print("EF0 percent : ", ret_map["ef0_percent"])
 
     ef1_map = []
     envymap1 = []
@@ -114,7 +122,8 @@ def ef_percent(dir_name):
     ef1_map = np.array(ef1_map)
     envymap1 = np.array(envymap1)
     # print(ef_map)
-    print("EF1 percent : ", np.sum(ef1_map)/len(ef1_map) * 100)
+    ret_map["ef1_percent"] = np.sum(ef1_map)/len(ef1_map) * 100
+    # print("EF1 percent : ", ret_map["ef1_percent"])
 
     ef2_map = []
     envymap2 = []
@@ -127,26 +136,39 @@ def ef_percent(dir_name):
     ef2_map = np.array(ef2_map)
     envymap2 = np.array(envymap2)
     # print(ef_map)
-    print("EF2 percent : ", np.sum(ef2_map)/len(ef2_map) * 100)
+    ret_map["ef2_percent"] = np.sum(ef2_map)/len(ef2_map) * 100
+    # print("EF2 percent : ", ret_map["ef2_percent"])
     
-    print("Means: envy")
-    print(np.mean(envymap0, axis=0))
-    print(np.mean(envymap1, axis=0))
-    print(np.mean(envymap2, axis=0))
+    # print("Means: envy")
+    ret_map["ef0_means"] = np.mean(envymap0, axis=0)
+    ret_map["ef1_means"] = np.mean(envymap1, axis=0)
+    ret_map["ef2_means"] = np.mean(envymap2, axis=0)
+    # print(ret_map["ef0_means"])
+    # print(ret_map["ef1_means"])
+    # print(ret_map["ef2_means"])
     
-    print("Means: max(0, envy)")
-    print(np.mean(envymap0.clip(min=0), axis=0))
-    print(np.mean(envymap1.clip(min=0), axis=0))
-    print(np.mean(envymap2.clip(min=0), axis=0))
+    # print("Means: max(0, envy)")
+    ret_map["ef0_pos_means"] = np.mean(envymap0.clip(min=0), axis=0)
+    ret_map["ef1_pos_means"] = np.mean(envymap1.clip(min=0), axis=0)
+    ret_map["ef2_pos_means"] = np.mean(envymap2.clip(min=0), axis=0)
+    # print(ret_map["ef0_pos_means"])
+    # print(ret_map["ef1_pos_means"])
+    # print(ret_map["ef2_pos_means"])
         
-    print("Means: min(0, envy)")
-    print(np.mean(envymap0.clip(max=0), axis=0))
-    print(np.mean(envymap1.clip(max=0), axis=0))
-    print(np.mean(envymap2.clip(max=0), axis=0))
+    # print("Means: min(0, envy)")
+    ret_map["ef0_neg_means"] = np.mean(envymap0.clip(max=0), axis=0)
+    ret_map["ef1_neg_means"] = np.mean(envymap1.clip(max=0), axis=0)
+    ret_map["ef2_neg_means"] = np.mean(envymap2.clip(max=0), axis=0)
+    # print(ret_map["ef0_neg_means"])
+    # print(ret_map["ef1_neg_means"])
+    # print(ret_map["ef2_neg_means"])
     
-    print("Stds")
-    print(np.std(envymap0, axis=0))
-    print(np.std(envymap1, axis=0))
-    print(np.std(envymap2, axis=0))
+    # print("Stds")
+    ret_map["ef0_stds"] = np.std(envymap0, axis=0)
+    ret_map["ef1_stds"] = np.std(envymap1, axis=0)
+    ret_map["ef2_stds"] = np.std(envymap2, axis=0)
+    # print(ret_map["ef0_stds"])
+    # print(ret_map["ef1_stds"])
+    # print(ret_map["ef2_stds"])
     
-    return (envymap0, envymap1, envymap2)
+    return ret_map
