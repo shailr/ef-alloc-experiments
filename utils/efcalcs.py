@@ -24,7 +24,7 @@ def substitutive_utility_2(alloc, utility) :
     pairwise_alloc = []
     p_utility = []
     for i in range(0, len(utility), 2):
-        p_utility.append(utility[i] + utility[i+1] - min(utility[i], utility[i+1]))
+        p_utility.append(utility[i] + utility[i+1] - max(0, min(utility[i], utility[i+1])))
     for i in range(0, len(alloc), 2):
         pairwise_alloc.append(alloc[i] & alloc[i+1])
     return additive_utililty(alloc, utility) + additive_utililty(pairwise_alloc, p_utility)
