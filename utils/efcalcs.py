@@ -38,7 +38,7 @@ def envyMap(allocs, utility_f, utilities, p_utilities):
             - utility_f(allocs[j], utilities[i], p_utilities[i])
     return envy_map
 
-def envyMap_upto1(allocs, utilities, p_utilities):
+def envyMap_upto1(allocs, utility_f, utilities, p_utilities):
     size_agents = np.array(allocs).shape[0]
     size_res = np.array(allocs).shape[1]
     envy_map = np.zeros((size_agents, size_agents))
@@ -61,7 +61,7 @@ def envyMap_upto1(allocs, utilities, p_utilities):
                 
     return envy_map
 
-def envyMap_upto2(allocs, utilities, p_utilities):
+def envyMap_upto2(allocs, utility_f, utilities, p_utilities):
     size_agents = np.array(allocs).shape[0]
     size_res = np.array(allocs).shape[1]
     envy_map = np.zeros((size_agents, size_agents))
