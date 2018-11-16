@@ -8,7 +8,25 @@ def complementing_utility(alloc, utility, p_utility) :
         pairwise_alloc.append(alloc[i] & alloc[i+1])
     return additive_utililty(alloc, utility) + additive_utililty(pairwise_alloc, p_utility)
 
-def optimal_nash_prod_wcomp(utility, p_utility) :
+def substitutive_utility_1(alloc, utility, p_utility=None) :
+    pairwise_alloc = []
+    p_utility = []
+    for i in range(0, len(utility), 2):
+        p_utility.append(max(utility[i], utility[i+1]))
+    for i in range(0, len(alloc), 2):
+        pairwise_alloc.append(alloc[i] & alloc[i+1])
+    return additive_utililty(alloc, utility) + additive_utililty(pairwise_alloc, p_utility)
+
+def substitutive_utility_2(alloc, utility, p_utility=None) :
+    pairwise_alloc = []
+    p_utility = []
+    for i in range(0, len(utility), 2):
+        p_utility.append(utility[i] + utility[i+1] - min(utility[i], utility[i+1]))
+    for i in range(0, len(alloc), 2):
+        pairwise_alloc.append(alloc[i] & alloc[i+1])
+    return additive_utililty(alloc, utility) + additive_utililty(pairwise_alloc, p_utility)
+
+def optimal_nash_prod_wcomp(utility_f, utility, p_utility) :
     n = len(utility)
     if n :
         m = len(utility[0])
@@ -25,7 +43,7 @@ def optimal_nash_prod_wcomp(utility, p_utility) :
         if not np.array_equal(req_resources, np.ones(m)) :
             continue
         for j in range(len(curr_alloc)) :
-            payoff *= complementing_utility(curr_alloc[j], utility[j], p_utility[j])
+            payoff *= utility_f(curr_alloc[j], utility[j], p_utility[j])
             
         if opt_payoff < payoff :
             opt_payoff = payoff
@@ -74,6 +92,6 @@ for s in range(10, 20):
             v_ijjp1 = np.random.random_sample(len(R)//2) * 100
             V.append(v_ijjp1)
 
-        nashp_alloc = optimal_nash_prod_wcomp(U, V)
+        nashp_alloc = optimal_nash_prod_wcomp(substitutive_utility_1, U, V)
 
         writeNashAlloc(U, V, nashp_alloc, s)

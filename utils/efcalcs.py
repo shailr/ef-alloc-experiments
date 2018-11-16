@@ -11,19 +11,31 @@ def complementing_utility(alloc, utility, p_utility) :
         pairwise_alloc.append(alloc[i] & alloc[i+1])
     return additive_utililty(alloc, utility) + additive_utililty(pairwise_alloc, p_utility)
 
-def substitutive_utility(alloc, utility, p_utility) :
+def substitutive_utility_1(alloc, utility) :
     pairwise_alloc = []
+    p_utility = []
+    for i in range(0, len(utility), 2):
+        p_utility.append(max(utility[i], utility[i+1]))
     for i in range(0, len(alloc), 2):
         pairwise_alloc.append(alloc[i] & alloc[i+1])
     return additive_utililty(alloc, utility) + additive_utililty(pairwise_alloc, p_utility)
 
-def envyMap(allocs, utilities, p_utilities):
+def substitutive_utility_2(alloc, utility) :
+    pairwise_alloc = []
+    p_utility = []
+    for i in range(0, len(utility), 2):
+        p_utility.append(utility[i] + utility[i+1] - min(utility[i], utility[i+1]))
+    for i in range(0, len(alloc), 2):
+        pairwise_alloc.append(alloc[i] & alloc[i+1])
+    return additive_utililty(alloc, utility) + additive_utililty(pairwise_alloc, p_utility)
+
+def envyMap(allocs, utility_f, utilities, p_utilities):
     size_agents = np.array(allocs).shape[0]
     envy_map = np.zeros((size_agents, size_agents))
     for i in range(len(envy_map)):
         for j in range(len(envy_map[i])):
-            envy_map[i][j] = complementing_utility(allocs[i], utilities[i], p_utilities[i]) \
-            - complementing_utility(allocs[j], utilities[i], p_utilities[i])
+            envy_map[i][j] = utility_f(allocs[i], utilities[i], p_utilities[i]) \
+            - utility_f(allocs[j], utilities[i], p_utilities[i])
     return envy_map
 
 def envyMap_upto1(allocs, utilities, p_utilities):
@@ -32,16 +44,16 @@ def envyMap_upto1(allocs, utilities, p_utilities):
     envy_map = np.zeros((size_agents, size_agents))
     for i in range(len(envy_map)) :
         for j in range(len(envy_map[i])):
-            envy_map[i][j] = complementing_utility(allocs[i], utilities[i], p_utilities[i]) \
-            - complementing_utility(allocs[j], utilities[i], p_utilities[i])
+            envy_map[i][j] = utility_f(allocs[i], utilities[i], p_utilities[i]) \
+            - utility_f(allocs[j], utilities[i], p_utilities[i])
             if envy_map[i][j] < 0 :
                 envy_res_drop1_j = np.zeros(size_res)
                 max_pos_envy = - maxsize
                 for x in range(len(envy_res_drop1_j)) :
                     new_alloc_j = list(allocs[j])
                     new_alloc_j[x] = 0
-                    envy_res_drop1_j[x] = complementing_utility(allocs[i], utilities[i], p_utilities[i]) \
-                    - complementing_utility(new_alloc_j, utilities[i], p_utilities[i])
+                    envy_res_drop1_j[x] = utility_f(allocs[i], utilities[i], p_utilities[i]) \
+                    - utility_f(new_alloc_j, utilities[i], p_utilities[i])
                     # print(envy_res_drop1_j)
                     if envy_res_drop1_j[x] >= max_pos_envy:
                         envy_map[i][j] = envy_res_drop1_j[x]
@@ -55,16 +67,16 @@ def envyMap_upto2(allocs, utilities, p_utilities):
     envy_map = np.zeros((size_agents, size_agents))
     for i in range(len(envy_map)) :
         for j in range(len(envy_map[i])):
-            envy_map[i][j] = complementing_utility(allocs[i], utilities[i], p_utilities[i]) \
-            - complementing_utility(allocs[j], utilities[i], p_utilities[i])
+            envy_map[i][j] = utility_f(allocs[i], utilities[i], p_utilities[i]) \
+            - utility_f(allocs[j], utilities[i], p_utilities[i])
             if envy_map[i][j] < 0 :
                 envy_res_drop1_j = np.zeros(size_res)
                 max_pos_envy = - maxsize
                 for x in range(len(envy_res_drop1_j)) :
                     new_alloc_j = list(allocs[j])
                     new_alloc_j[x] = 0
-                    envy_res_drop1_j[x] = complementing_utility(allocs[i], utilities[i], p_utilities[i]) \
-                    - complementing_utility(new_alloc_j, utilities[i], p_utilities[i])
+                    envy_res_drop1_j[x] = utility_f(allocs[i], utilities[i], p_utilities[i]) \
+                    - utility_f(new_alloc_j, utilities[i], p_utilities[i])
                     # print(envy_res_drop1_j)
                     if envy_res_drop1_j[x] >= max_pos_envy:
                         envy_map[i][j] = envy_res_drop1_j[x]
@@ -79,8 +91,8 @@ def envyMap_upto2(allocs, utilities, p_utilities):
                                     new_alloc_j_drop2 = list(allocs[j])
                                     new_alloc_j_drop2[p] = 0
                                     new_alloc_j_drop2[q] = 0
-                                    envy_res_drop2_j[p][q] = complementing_utility(allocs[i], utilities[i], p_utilities[i]) \
-                                    - complementing_utility(new_alloc_j_drop2, utilities[i], p_utilities[i])
+                                    envy_res_drop2_j[p][q] = utility_f(allocs[i], utilities[i], p_utilities[i]) \
+                                    - utility_f(new_alloc_j_drop2, utilities[i], p_utilities[i])
                                     if envy_res_drop2_j[p][q] >= max_pos_envy_drop2:
                                         envy_map[i][j] = envy_res_drop2_j[p][q]
                                         max_pos_envy_drop2 = envy_res_drop2_j[p][q]
