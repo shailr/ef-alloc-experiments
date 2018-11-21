@@ -8,24 +8,6 @@ def complementing_utility(alloc, utility, p_utility) :
         pairwise_alloc.append(alloc[i] & alloc[i+1])
     return additive_utililty(alloc, utility) + additive_utililty(pairwise_alloc, p_utility)
 
-def substitutive_utility_1(alloc, utility, p_utility=None) :
-    pairwise_alloc = []
-    p_utility = []
-    for i in range(0, len(utility), 2):
-        p_utility.append(max(utility[i], utility[i+1]))
-    for i in range(0, len(alloc), 2):
-        pairwise_alloc.append(alloc[i] & alloc[i+1])
-    return additive_utililty(alloc, utility) + additive_utililty(pairwise_alloc, p_utility)
-
-def substitutive_utility_2(alloc, utility, p_utility=None) :
-    pairwise_alloc = []
-    p_utility = []
-    for i in range(0, len(utility), 2):
-        p_utility.append(utility[i] + utility[i+1] - max(0, min(utility[i], utility[i+1])))
-    for i in range(0, len(alloc), 2):
-        pairwise_alloc.append(alloc[i] & alloc[i+1])
-    return additive_utililty(alloc, utility) + additive_utililty(pairwise_alloc, p_utility)
-
 def optimal_nash_prod_wcomp(utility_f, utility, p_utility) :
     n = len(utility)
     if n :
@@ -89,9 +71,26 @@ for s in range(10, 20):
 
         V = []
         for index, i in enumerate(N):
-            v_ijjp1 = np.random.random_sample(len(R)//2) * 100
+            # No complementing utility
+            # v_ijjp1 = np.random.random_sample(len(R)//2) * 0
+
+            # Complementing utility
+            # v_ijjp1 = np.random.random_sample(len(R)//2) * 100
+
+            # Substitutive utility 1
+#             v_ijjp1 = []
+#             for j in range(0, len(U[index]), 2):
+#                 v_ijjp1.append(max(U[index][j], U[index][j+1]))
+#             v_ijjp1 = np.array(v_ijjp1)
+
+            # Substitutive utility 2
+            v_ijjp1 = []
+            for j in range(0, len(U[index]), 2):
+                v_ijjp1.append(U[index][j] + U[index][j+1] - np.random.uniform(0, min(U[index][j], U[index][j+1]), 1)[0])
+            v_ijjp1 = np.array(v_ijjp1)
+
             V.append(v_ijjp1)
 
-        nashp_alloc = optimal_nash_prod_wcomp(substitutive_utility_1, U, V)
+        nashp_alloc = optimal_nash_prod_wcomp(complementing_utility, U, V)
 
         writeNashAlloc(U, V, nashp_alloc, s)
