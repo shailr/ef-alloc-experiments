@@ -11,7 +11,7 @@ def complementing_utility(alloc, utility, p_utility) :
         pairwise_alloc.append(alloc[i] & alloc[i+1])
     return additive_utililty(alloc, utility) + additive_utililty(pairwise_alloc, p_utility)
 
-def envyMap(allocs, utility_f, utilities, p_utilities):
+def envyMap(utility_f, allocs, utilities, p_utilities):
     size_agents = np.array(allocs).shape[0]
     envy_map = np.zeros((size_agents, size_agents))
     for i in range(len(envy_map)):
@@ -20,7 +20,7 @@ def envyMap(allocs, utility_f, utilities, p_utilities):
             - utility_f(allocs[j], utilities[i], p_utilities[i])
     return envy_map
 
-def envyMap_upto1(allocs, utility_f, utilities, p_utilities):
+def envyMap_upto1(utility_f, allocs, utilities, p_utilities):
     size_agents = np.array(allocs).shape[0]
     size_res = np.array(allocs).shape[1]
     envy_map = np.zeros((size_agents, size_agents))
@@ -43,7 +43,7 @@ def envyMap_upto1(allocs, utility_f, utilities, p_utilities):
                 
     return envy_map
 
-def envyMap_upto2(allocs, utility_f, utilities, p_utilities):
+def envyMap_upto2(utility_f, allocs, utilities, p_utilities):
     size_agents = np.array(allocs).shape[0]
     size_res = np.array(allocs).shape[1]
     envy_map = np.zeros((size_agents, size_agents))
@@ -94,7 +94,7 @@ def ef_percent(dir_name):
     ef_map = []
     envymap0 = []
     for i in range(1000):
-        envymaptemp = envyMap(As[i], Us[i], Vs[i])
+        envymaptemp = envyMap(complementing_utility, As[i], Us[i], Vs[i])
         envymap0.append(envymaptemp)
         # print(envymaptemp)
         ef_map.append(not bool(np.sum(envymaptemp<0)))
@@ -108,7 +108,7 @@ def ef_percent(dir_name):
     ef1_map = []
     envymap1 = []
     for i in range(1000):
-        envymaptemp = envyMap_upto1(As[i], Us[i], Vs[i])
+        envymaptemp = envyMap_upto1(complementing_utility, As[i], Us[i], Vs[i])
         envymap1.append(envymaptemp)
         # print(envymaptemp)
         ef1_map.append(not bool(np.sum(envymaptemp<0)))
@@ -122,7 +122,7 @@ def ef_percent(dir_name):
     ef2_map = []
     envymap2 = []
     for i in range(1000):
-        envymaptemp = envyMap_upto2(As[i], Us[i], Vs[i])
+        envymaptemp = envyMap_upto2(complementing_utility, As[i], Us[i], Vs[i])
         envymap2.append(envymaptemp)
         # print(envymaptemp)
         ef2_map.append(not bool(np.sum(envymaptemp<0)))
