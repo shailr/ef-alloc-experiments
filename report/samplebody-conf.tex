@@ -104,7 +104,7 @@ An agent will earn the complementing utility if its allocation contains both the
 \subsection{Substituting goods and utilities}
 /* Filler. Replace this
 
-Two goods are said to be complements if demand for one has some form of dependency over the demand of other. In other words, their demands are linked in such a way that increase in one raises the demand of the other, and same the decrease. A popular real-world example of complementary goods is razors blades. If the sell of razors increases, the demand for blades will rise too. This is an example of perfect complements. One can't use razors without blades or the other way. Real-world is full of such examples; burger and fries, hot dogs and buns, cars and gas, etc. Some of them are perfect complements, others are not.
+Two goods are said to be substitutes if demand for one has some form of dependency over the demand of other. In other words, their demands are linked in such a way that increase in one raises the demand of the other, and same the decrease. A popular real-world example of complementary goods is razors blades. If the sell of razors increases, the demand for blades will rise too. This is an example of perfect complements. One can't use razors without blades or the other way. Real-world is full of such examples; burger and fries, hot dogs and buns, cars and gas, etc. Some of them are perfect complements, others are not.
 
 In this paper, we define complements over pairs of adjacent goods. We denote complementing utilities for each agent i as: 
 
@@ -141,6 +141,7 @@ The problem gets difficult for indivisible goods. In a simple example with one i
 For feasibility, we weaken the constraint on envy-freeness and attempt allocation under these constraint.
 
 \begin{definition}{Envy-free up to one good (EF1) \cite{caragiannis2016unreasonable}}
+\label{def_ef1}
 An allocation $\mathcal{A}$ is envy-free up to one good (EF1) if for all agents $i$, $j$, agent $i$ will stop envying agent $j$ if a good $g$, for some $g$ in $\mathcal{A}_j$ is dropped from the allocations of agent $j$, $\mathcal{A}_j$. Formally,
 $$
     \forall i,j \in \mathcal{N}, \exists g \in \mathcal{A}_j, V_i(\mathcal{A}_i) \geq V_i(\mathcal{A}_j \backslash \{g\})
@@ -150,13 +151,16 @@ $$
 We further relax the envy-freeness fairness criterion for up to $k$ goods.
 
 \begin{definition}{Envy-free up to $k$ goods (EFk).}
+\label{def_efk}
 An allocation $\mathcal{A}$ is envy-free up to $k$ goods (EFk) if for all agents $i$, $j$, agent $i$ will stop envying agent $j$ if a set of goods $\mathcal{G} \subseteq \mathcal{A}_j$, such that $|\mathcal{G}| = k$, is dropped from the allocations of agent $j$, $\mathcal{A}_j$. Formally,
 $$
-    \forall i,j \in \mathcal{N}, k \leq |\mathcal{M}|, \exists \mathcal{G} \subseteq \mathcal{A}_j, || = k, V_i(\mathcal{A}_i) \geq V_i(\mathcal{A}_j \backslash \{\mathcal{G}\})
+    \forall i,j \in \mathcal{N}, k \leq |\mathcal{M}|, \exists \mathcal{G} \subseteq \mathcal{A}_j, |G| = k, V_i(\mathcal{A}_i) \geq V_i(\mathcal{A}_j \backslash \{\mathcal{G}\})
 $$
 \end{definition}
 
 In other words, if agent $i$ doesn't envy agent $j$ once we drop some $k$ goods from agent $j$'s allocation $\mathcal{A}_j$, then the allocation is called envy-free up to $k$ goods (EFk).
+
+Also, the definition \ref{def_efk} allows an EFk allocation to be EF(k+1), EF(k+2), and so on, as once we have an EFk allocation $ \exists G \subseteq \mathcal{A}$, $ |G|=k \ni V_i(\mathcal{A}_i) - V_i(\mathcal{A}_j \backslash G) \geq 0 $ and dropping more goods from agent $j$'s allocation would only increase $V_i(\mathcal{A}_i) - V_i(\mathcal{A}_j \backslash G)$ and not create any new envy.
 
 
 \subsection{Welfare and Maximum Nash Welfare}
@@ -174,17 +178,21 @@ The simple cake division problem described above is both utilitarian and egalita
 
 The maximum Nash welfare (MNW) solution provides both fairness and efficiency. We follow the definition the MNW solution by Caragiannis, Ioannis, et al. \cite{caragiannis2016unreasonable}
 
-\begin{definition}{Nash welfare (NW) or Nash product}
-Nash welfare or Nash product is a product of utilities of agents for allocated goods
+\begin{definition}{Nash welfare (NW) or Nash product} \label{def_nw}
+Nash welfare or Nash product is a product of utilities of agents for allocated goods with a condition that every agent values it's allocation positively
 
-$$
-    NW(\mathcal{A}) = \prod_{i \in \mathcal{N}} V_i(\mathcal{A}_i)
-$$
+\begin{equation}
+    NW(\mathcal{A}) = 
+    \begin{cases}
+    \prod_{i \in \mathcal{N}} V_i(\mathcal{A}_i), & \text{if } \forall i \in \mathcal{N}, V_i(\mathcal{A}_i) > 0 \\
+    \text{not defined}, & \text{otherwise}
+    \end{cases}
+\end{equation}
 
 for all agents $i$ in $\mathcal{N}$, where $V$ is the value function and $\mathcal{A}$ is the allocation.
 \end{definition}
 
-\begin{definition}{Maximum Nash welfare (MNW).}
+\begin{definition}{Maximum Nash welfare (MNW).} \label{def_mnw}
 MNW allocation is the one that maximizes the Nash welfare among all possible allocations
 
 $$
@@ -521,105 +529,105 @@ Figure 5 plots mean envy between the agents after dropping 0, 1, and 2 goods for
 Figure 7 plots the mean negative envy in the allocations after dropping 0, 1, and 2 goods for EF0, EF1, and EF2, respectively. Mean negative envy plot reflects association with Figure 4 - Percent EFk. It is the plot of envy values for the agents who negatively envies other agents. Similar to Figure 4, EF2 shows zero envy. The same high EF1 pattern as Figure 4 is visible in Figure 7 with some allocations showing zero negative envy.
 
 
-% DFs additive
-\begin{figure}[h!]
-  \centering
-  \begin{subfigure}[b]{0.47\linewidth}
-    \includegraphics[width=\linewidth]{images/add/pdf_additive_10.png}
-    \caption{}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.47\linewidth}
-    \includegraphics[width=\linewidth]{images/add/pdf_additive_8.png}
-    \caption{}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.47\linewidth}
-    \includegraphics[width=\linewidth]{images/add/pdf_additive_6.png}
-    \caption{}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.47\linewidth}
-    \includegraphics[width=\linewidth]{images/add/pdf_additive_4.png}
-    \caption{}
-  \end{subfigure}
-  \caption{Envy distribution curve for Additive Utilities}
-  \label{fig:efk}
-  \small
-    Envy distribution of the entire sample space with additive utilities after dropping 0, 1, and 2 goods for number of goods (a) $m = 10$, (b) $m = 8$, (c) $m = 6$, (d) $m = 4$
-\end{figure}
+% % DFs additive
+% \begin{figure}[h!]
+%   \centering
+%   \begin{subfigure}[b]{0.47\linewidth}
+%     \includegraphics[width=\linewidth]{images/add/pdf_additive_10.png}
+%     \caption{}
+%   \end{subfigure}
+%   \begin{subfigure}[b]{0.47\linewidth}
+%     \includegraphics[width=\linewidth]{images/add/pdf_additive_8.png}
+%     \caption{}
+%   \end{subfigure}
+%   \begin{subfigure}[b]{0.47\linewidth}
+%     \includegraphics[width=\linewidth]{images/add/pdf_additive_6.png}
+%     \caption{}
+%   \end{subfigure}
+%   \begin{subfigure}[b]{0.47\linewidth}
+%     \includegraphics[width=\linewidth]{images/add/pdf_additive_4.png}
+%     \caption{}
+%   \end{subfigure}
+%   \caption{Envy distribution curve for Additive Utilities}
+%   \label{fig:efk}
+%   \small
+%     Envy distribution of the entire sample space with additive utilities after dropping 0, 1, and 2 goods for number of goods (a) $m = 10$, (b) $m = 8$, (c) $m = 6$, (d) $m = 4$
+% \end{figure}
 
-% DFs complementing
-\begin{figure}[h!]
-  \centering
-  \begin{subfigure}[b]{0.47\linewidth}
-    \includegraphics[width=\linewidth]{images/compl/pdf_complementing_10.png}
-    \caption{}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.47\linewidth}
-    \includegraphics[width=\linewidth]{images/compl/pdf_complementing_8.png}
-    \caption{}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.47\linewidth}
-    \includegraphics[width=\linewidth]{images/compl/pdf_complementing_6.png}
-    \caption{}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.47\linewidth}
-    \includegraphics[width=\linewidth]{images/compl/pdf_complementing_4.png}
-    \caption{}
-  \end{subfigure}
-  \caption{Envy distribution curve for Complementing Utilities}
-  \label{fig:efk}
-  \small
-    Envy distribution of the entire sample space with complementing utilities after dropping 0, 1, and 2 goods for number of goods (a) $m = 10$, (b) $m = 8$, (c) $m = 6$, (d) $m = 4$
-\end{figure}
+% % DFs complementing
+% \begin{figure}[h!]
+%   \centering
+%   \begin{subfigure}[b]{0.47\linewidth}
+%     \includegraphics[width=\linewidth]{images/compl/pdf_complementing_10.png}
+%     \caption{}
+%   \end{subfigure}
+%   \begin{subfigure}[b]{0.47\linewidth}
+%     \includegraphics[width=\linewidth]{images/compl/pdf_complementing_8.png}
+%     \caption{}
+%   \end{subfigure}
+%   \begin{subfigure}[b]{0.47\linewidth}
+%     \includegraphics[width=\linewidth]{images/compl/pdf_complementing_6.png}
+%     \caption{}
+%   \end{subfigure}
+%   \begin{subfigure}[b]{0.47\linewidth}
+%     \includegraphics[width=\linewidth]{images/compl/pdf_complementing_4.png}
+%     \caption{}
+%   \end{subfigure}
+%   \caption{Envy distribution curve for Complementing Utilities}
+%   \label{fig:efk}
+%   \small
+%     Envy distribution of the entire sample space with complementing utilities after dropping 0, 1, and 2 goods for number of goods (a) $m = 10$, (b) $m = 8$, (c) $m = 6$, (d) $m = 4$
+% \end{figure}
 
-% DFs substituting type-1
-\begin{figure}[h!]
-  \centering
-  \begin{subfigure}[b]{0.47\linewidth}
-    \includegraphics[width=\linewidth]{images/subst1/pdf_subst1_10.png}
-    \caption{}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.47\linewidth}
-    \includegraphics[width=\linewidth]{images/subst1/pdf_subst1_8.png}
-    \caption{}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.47\linewidth}
-    \includegraphics[width=\linewidth]{images/subst1/pdf_subst1_6.png}
-    \caption{}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.47\linewidth}
-    \includegraphics[width=\linewidth]{images/subst1/pdf_subst1_4.png}
-    \caption{}
-  \end{subfigure}
-  \caption{Envy distribution curve for Substituting type 1 Utilities}
-  \label{fig:efk}
-  \small
-    Envy distribution of the entire sample space with substituting utilities type 1 after dropping 0, 1, and 2 goods for number of goods (a) $m = 10$, (b) $m = 8$, (c) $m = 6$, (d) $m = 4$
-\end{figure}
+% % DFs substituting type-1
+% \begin{figure}[h!]
+%   \centering
+%   \begin{subfigure}[b]{0.47\linewidth}
+%     \includegraphics[width=\linewidth]{images/subst1/pdf_subst1_10.png}
+%     \caption{}
+%   \end{subfigure}
+%   \begin{subfigure}[b]{0.47\linewidth}
+%     \includegraphics[width=\linewidth]{images/subst1/pdf_subst1_8.png}
+%     \caption{}
+%   \end{subfigure}
+%   \begin{subfigure}[b]{0.47\linewidth}
+%     \includegraphics[width=\linewidth]{images/subst1/pdf_subst1_6.png}
+%     \caption{}
+%   \end{subfigure}
+%   \begin{subfigure}[b]{0.47\linewidth}
+%     \includegraphics[width=\linewidth]{images/subst1/pdf_subst1_4.png}
+%     \caption{}
+%   \end{subfigure}
+%   \caption{Envy distribution curve for Substituting type 1 Utilities}
+%   \label{fig:efk}
+%   \small
+%     Envy distribution of the entire sample space with substituting utilities type 1 after dropping 0, 1, and 2 goods for number of goods (a) $m = 10$, (b) $m = 8$, (c) $m = 6$, (d) $m = 4$
+% \end{figure}
 
-% DFs substituting type-2
-\begin{figure}[h!]
-  \centering
-  \begin{subfigure}[b]{0.47\linewidth}
-    \includegraphics[width=\linewidth]{images/subst2/pdf_subst2_10.png}
-    \caption{}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.47\linewidth}
-    \includegraphics[width=\linewidth]{images/subst2/pdf_subst2_8.png}
-    \caption{}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.47\linewidth}
-    \includegraphics[width=\linewidth]{images/subst2/pdf_subst2_6.png}
-    \caption{}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.47\linewidth}
-    \includegraphics[width=\linewidth]{images/subst2/pdf_subst2_4.png}
-    \caption{}
-  \end{subfigure}
-  \caption{Envy distribution curve for Substituting type 2 Utilities}
-  \label{fig:efk}
-  \small
-    Envy distribution of the entire sample space with substituting utilities type 2 after dropping 0, 1, and 2 goods for number of goods (a) $m = 10$, (b) $m = 8$, (c) $m = 6$, (d) $m = 4$
-\end{figure}
+% % DFs substituting type-2
+% \begin{figure}[h!]
+%   \centering
+%   \begin{subfigure}[b]{0.47\linewidth}
+%     \includegraphics[width=\linewidth]{images/subst2/pdf_subst2_10.png}
+%     \caption{}
+%   \end{subfigure}
+%   \begin{subfigure}[b]{0.47\linewidth}
+%     \includegraphics[width=\linewidth]{images/subst2/pdf_subst2_8.png}
+%     \caption{}
+%   \end{subfigure}
+%   \begin{subfigure}[b]{0.47\linewidth}
+%     \includegraphics[width=\linewidth]{images/subst2/pdf_subst2_6.png}
+%     \caption{}
+%   \end{subfigure}
+%   \begin{subfigure}[b]{0.47\linewidth}
+%     \includegraphics[width=\linewidth]{images/subst2/pdf_subst2_4.png}
+%     \caption{}
+%   \end{subfigure}
+%   \caption{Envy distribution curve for Substituting type 2 Utilities}
+%   \label{fig:efk}
+%   \small
+%     Envy distribution of the entire sample space with substituting utilities type 2 after dropping 0, 1, and 2 goods for number of goods (a) $m = 10$, (b) $m = 8$, (c) $m = 6$, (d) $m = 4$
+% \end{figure}
 
 
 Figure 8-11 plot the distributions of envy for simulated 1000 samples. As discussed about other plots, the decrease in number of goods can directly be seen in increase in number of envied allocations. These curves give a nice shape to the envy calculations before and after dropping goods for EF0, EF1, and EF2 calculations. Figure 8-11 show both, final envy after dropping the good and that sorted on the sampling x-axis which forms a smooth shape with rest of the distribution curve.
@@ -631,98 +639,105 @@ We already know MNW allocations for additive utility values are envy-free up to 
 
 In previous section, we conduct experiments on complementary and substitute goods. We have simulated the complements and substitutes of the goods in the market in terms of the dependency of utility valuation for pairs of goods. An interesting fact emerge from the plots is that, all of the MNW allocations are envy-freeness up to 2 goods.
 
-We classify the complementary and substitute valuations as dependent goods.
+We classify complementary and substitute valuations as bonded goods.
 
-\textit{Definition 5.1} Dependent good valuations.
-Dependent good is the good $x$ who's value for an agent $V(x)$ depends on whether the agent gets some other set of goods $Y$ in allocation $\mathcal{A}$ or not.
+\begin{definition}{Additively bonded goods valuation.}
+Bonded good is the good $x \in \mathcal{M}$ whose value $V_i(x), \forall i \in \mathcal{N}$ varies with whether the agent gets some other set of goods $Y \subseteq \mathcal{M}$ in allocation $\mathcal{A}$ or not and the value is additive.
+\end{definition}
 
-Extending the idea of EF1 of additive goods, in this section, we formally affirm the envy-freeness up to k goods (EFk) for dependent goods.
+To elaborate further, suppose each agent have a value for each of the goods. If we can get a total utility for an agent by adding his values mapped to the goods that the agent owns, we have additively bonded goods with dependency of up to 1 good (all goods depend on themselves and no one else). Now we introduce utility function which is computed based on the fact that an agent owns a pair of goods. In this case, if an agent owns a pair, the value will be different that if the agent owns any one of the goods from the pair. But the total utility for the allocation can still be computed by adding the value for the pair instead of the individual goods. We call this additively bonded goods with dependency of up to 2 goods. On the same lines, if we have a value defined for getting a set of $k$ goods and the total utility can still be computed by adding the value of $k$ goods instead of any of the subsets, that can be called as additively bonded goods with dependency of up to $k$ goods.
 
-\subsubsection{Theorem} \textit{Every MNW allocation is envy free up to k goods (EFk) for dependent valueations over indivisible goods where the valuations of an agent for goods show dependency on k other goods.}
+The total utility of additively bonded goods with dependency of up to $k$ goods will be equal to the addition of values of subsets of the allocation.
 
-\textit{Proof} $\mathcal{A}$ is a MNW allocation for n agents. 
+\begin{equation}
+\label{eq_abgv}
+\begin{gathered}
+    V_i(\mathcal{A}_i) = \operatorname{maximize} \sum_{j=0}^{k-1} V^{k-j}_i(\mathcal{A}^{k-j}_i) \\
+    V_i(\mathcal{A}_i) = \operatorname{maximize} V^k_i(\mathcal{A}^k_i) + V^{k-1}_i(\mathcal{A}^{k-1}_i) + ... + V^1_i(\mathcal{A}^{1}_i)
+\end{gathered}
+\end{equation}
 
+where $V$ is the valuation of allocation $\mathcal{A}$ for agent $i$. 
 
-\hrule
-x
-\hrule
+Extending the idea of EF1 of additive goods \cite{caragiannis2016unreasonable}, in this section, we formally affirm the envy-freeness up to $k$ goods (EFk) for additively bonded goods with dependency of up to $k$ goods.
 
-\subsubsection{Definition 3} Network Embedding
+\begin{theorem}
+Every MNW allocation is envy free up to $k$ goods (EFk), for additively bonded valuations over indivisible goods where the valuations of an agent for goods show additive dependency on $k$ other goods.
+\end{theorem}
 
-For a graph G, a network embedding is a ming function $\phi : V \mapsto \mathbb{R}^{|V|xd}$ where $d << |V|$. Mapping $\phi$ defines the latent representation embedding vector space for each node $v \in V$. $\phi(v)$ denotes the embedding vector for $v$.
+\begin{proof}
+By definition \ref{def_efk}, for all agent's $i, j \in \mathcal{N}$, an EFk allocation contains an agent $i$ who envies some agent $j$ even after dropping $k-1$ goods from agent $j$'s allocation and stops envying after dropping $k$th good. Also, if an allocation is EFk, then definition \ref{def_efk} permits the allocation to be EF(k+$i$) for $0 \leq i \leq |\mathcal{M}|$. So the only assertion to prove is guaranteed existence of EFk.
 
-\subsubsection{Problem 1} Influence embedding \cite{zhang2013social}
+We approach this proof by contradiction. We start with a MNW allocation $\mathcal{A}$ being not EFk, so that agent $i$ envies agent $j$ even after removing $k$ goods from agent $j$'s allocation $\mathcal{A}_j$.
 
-Social influence locality models the probability of $v$'s action conditioned on its neighboring network $G^n_v$ where n is the depth of neighbor to monitor. So, given $G_v^n$ and $S_v^t = \{s^t_v : v \in \Gamma_v^n / \{v\} \}$
-Our input to the problem is N instances of 3-tuple $(v, a, t)$ where $v$ is the node, $a$ is the action, and $t$ is the timestamp of the action.
+Let $G^* = \operatorname{arg\,min}_{G \subseteq \mathcal{A}_j, |G| \leq k, V_i(G)>0} V_j(G)/V_i(G)$. $G^*$ is a set of goods such that $|G| \leq k$. $G^*$ is well-defined because agent $i$ envying agent $j$ implies that agent $i$ has a positive envy for a set of at most $k$ goods in the allocation of agent $j$, $\mathcal{A}_j$. 
 
+Let $\mathcal{A}'$ denote the allocation obtained from moving $G^*$ from agent $j$ to agent $i$ in $\mathcal{A}$. With this movement, we need to show $NW(\mathcal{A}') > NW(\mathcal{A})$, which will contradict the optimality of MNW assumption of $\mathcal{A}$ we began with.
+$$
+    NW(\mathcal{A}') > NW(\mathcal{A})
+$$
+$$
+    \frac{NW(\mathcal{A}')}{NW(\mathcal{A})} > 1
+$$
+The ratio is valid, as we define $NW(\mathcal{A}) > 0$ always valid in definition \ref{def_nw}.
 
-\subsection{Inflowalk}
+For all other agents $p$ not a part of the exchange, the value of allocation $\mathcal{A}_p$ does not change. That is, $\forall p \in \mathcal{N}\backslash\{i,j\}, V_p(\mathcal{A}'_p) = V_p(\mathcal{A}_p)$
 
-Our method is highly inspired by the DeepWalk \cite{perozzi2014deepwalk} random walk method described in the preliminaries. It consists of three simple steps. First, creating a network embedding based only on the network structure. Second, creating the network embedding based on the influence network. Third, concatenation and merging of the embeddings.
+Since MNW is Pareto optimal (PO) and goods are additively bonded, we can write,
+$$
+    V_i(\mathcal{A}'_i) = V_i(\mathcal{A}_i) + V_i(G^*)
+$$
+$$
+    V_j(\mathcal{A}'_j) = V_j(\mathcal{A}_j) - V_j(G^*)
+$$
+Here, $V(G^*)$ represents maximum value derived by agents $i$ and $j$ from $G^*$ for $|G| \leq k$
 
-\subsubsection{Node Embedding}
+So, backing up to the ratio of Nash welfare of the original and the modified allocations,
 
-The random walk generator takes graph G  and samples uniformly a random vertex $v_i$ as the start of the random walk. Then it samples another random node from neighbors to create the next node of the path. It keeps on repeating this till we get a path length of the max size defined as an input to the program.
+\begin{equation}
+\label{eq_prooffinal}
+\begin{gathered}
+    \frac{NW(\mathcal{A}')}{NW(\mathcal{A})} > 1 \Leftrightarrow \left[\frac{V_i(\mathcal{A}_i) + V_i(G^*)}{V_j(\mathcal{A}_j) - V_j(G^*)}\right] \\
+    \Leftrightarrow \left[1 - \frac{V_j(G^*)}{V_j(\mathcal{A}_j)}\right] \cdot \left[1 + \frac{V_i(G^*)}{V_i(\mathcal{A}_i)}\right] \\
+    \Leftrightarrow \frac{V_j(G^*)}{V_i(G^*)} \cdot \left[V_i(\mathcal{A}_i) + V_i(G^*) \right] < V_j(\mathcal{A}_j)
+\end{gathered}
+\end{equation}
 
-Next step is to take each of the generated path one by one and pass it to the skip-gram \cite{mikolov2013efficient} Word2Vec model. The word2vec receives each paths one by one like a sentence and updates node embedding for each node in the path and further the graph.
+using the simple algebraic property for ratio, choice of $G^*$ and equation \ref{eq_abgv}
+\begin{equation}
+\label{eq_proofmul1}
+    \frac{V_j(G^*)}{V_i(G^*)} \leq \frac{\sum_{G \in \mathcal{A}_j}V_j(G)}{\sum_{G \in \mathcal{A}_j}V_i(G)} = \frac{V_j(\mathcal{A}_j)}{V_i(\mathcal{A}_j)}
+\end{equation}
 
-\subsubsection{Influence Embedding}
+Since agent $i$ envies $j$ even after removing $g^*$ from agent $j$'s allocations, we can write,
+\begin{equation}
+\label{eq_proofmul2}
+\begin{gathered}
+    V_i(\mathcal{A}_i) < v_i(\mathcal{A}_j) - V_i(G^*) \\
+    V_i(\mathcal{A}_i) + V_i(G^*) < v_i(\mathcal{A}_j)
+\end{gathered}
+\end{equation}
 
-The influence embedding layer is very similar to the node embedding layer in the sense that it receives paths, pass it to word2vec skip-gram model and generate the embeddings. The difference is instead of random sampling, this time we sample the neighbor for the choice of path based on current nodes influence on the neighbor. The influence here is defined as a normalized vector of the amount of interaction between the noes.
+Multiplying equations \ref{eq_proofmul1} and \ref{eq_proofmul2}, gives us equation \ref{eq_prooffinal} required to prove the theorem.
 
-\subsubsection{Concatenation Layer}
+Since $G^* \subseteq \mathcal{A}_j where |G| \leq k$ and maximum possibility of $k$ in equation \ref{eq_abgv} used to arrive at equation \ref{eq_proofmul1}, we prove the theorem that the allocations are EFk.
 
-Concatenation layer takes as input the two same N sized embeddings and output a concatenated version of the embeddings for each node. It's a simple fully connected layer with 2N inputs and N outputs to represent N dimensional embedding.
-
-\section{Experiments}
-
-\subsection{Datasets}
-
-We use three real-world datasets for our experiments - Digg \cite{hogg2012social}, Twitter \cite{de2013anatomy}, Citeseer \cite{chung1997spectral}. We have reduced the size of the original datasets as per the available computational capability. Following table provides the details of the full datasets:
-
-\begin{table}
-  \caption{Dataset statistics}
-  \begin{tabular}{ccc}
-    \toprule
-    Dataset&|V|&|E|\\
-    \midrule
-    Digg & 279,630 & 41,548,126 \\
-    Twitter & 456,626 & 12,508,413 \\
-    Citeseer & 3312 & 4732 \\
-  \bottomrule
-\end{tabular}
-\end{table}
-
-\subsection{Baselines}
-
-
-\subsection{Experimental Parameter}
-
-We set the window size of 20 for the walks of size 35 and we generate 80 walks (or less for influence network) for each path. Our final embedding size for each step is set to 128. We run 8 computation threads to speed up the embedding process.
-
-\subsection{Results}
-
-Table shows the result of the classification tasks performed on the three datasets using the two embeddings
-
-\begin{table}
-  \caption{Model Classification Accuracy}
-  \begin{tabular}{cccc}
-    \toprule
-    Model&Digg&Twitter&Citeseer\\
-    \midrule
-    DeepWalk&0&0&0\\
-    InfloWalk&0&0&0\\
-  \bottomrule
-\end{tabular}
-\end{table}
-
+\end{proof}
 
 \section{Conclusion and Future Work}
-Most of the existing node embedding research focus on static graphs where one node doesn't usually affect any other node. This approach doesn't make use of the information available in the interaction between the nodes. InfloWalk successfully captures the interaction between nodes and produces embedding which reflects the same. This specifically helps in the tasks like node classification where instead of just the node connections, if the node interaction is used, we should get better spatial distribution of nodes in the embedded vector space. This is evident from the experiments we conducted on three real-world dataset.
 
-Currently, the node embeddings are being trained separately. In the future, we'll like to work on a model that combines uses this information along with user features such as geolocation, text content features (tweet vectors, LIWC) to produce a more grounded embedding. Features such as language, emotions, etc. may probably be a better indicator of the influence
+The primary aim of this paper is to analyze and prove the envy-freeness bounds for specialized markets that showcase different utilities than the generic additive utilities. We start with defining the types of goods and the various ways they may get valued by agents. Namely, we identify additive, complementing, substituting type goods and utilities. We define fairness criteria, welfare and their interpretation in efficiency vs fairness trade-off. 
+
+Following the idea of envy-freeness up to one good (EF1) and maximum Nash welfare (MNW) for additive indivisible goods being EF1 \cite{caragiannis2016unreasonable}, we extend the concept to pairwise dependent complementing and substituting goods. Simulated experiments over a large independent and identically distributed sample space of such utilities show the MNW allocations to be envy-free up to two goods (EF2). We propose the idea of envy-freeness up to $k$ goods for dependent additive goods. We further provide a proof that MNW allocation for additively bonded goods with depend\-ency of $k$ goods are EFk.
+
+There is a wide range of applications of such type of utilities. The real world is full of examples of complementing and substituting goods with varying levels of dependency. One such application could be the local envy-freeness in generalized second price auction of keywords for advertisement in search engines \cite{edelman2007internet} with different banner positions being valued as complements and substitutes by agents resulting in a complex strategy design. 
+
+Future work can also focus on identifying other valuation criteria, additive or not, which follows similar patterns and entails strong efficiency and welfare bounds.
 
 \begin{acks}
-I would like to acknowledge the class of CS 584 - Advanced Data Mining, Fall'18 for the introduction to all the interesting concepts in data mining which further became part of this paper. I would also like to thank Prof. Philip S. Yu and Chenwei Zhang for an interesting course
+This paper is due as a part of CS597 - Project Research as a graduation requirement for master of science in computer science with the Department of Computer Science at University of Illinois at Chicago.
+
+I would like to express my gratitude to my research advisor Prof. Ian Kash for the introduction, guidance, and immense support in the research area, and in general. I would also like to acknowledge Prof.               for being the part of the review committee. I would like to thank the class of CS594 - Economics in CS for the deeper knowledge of background and discussion on interesting concept surrounding the topic of this paper.
+
+
 \end{acks}
