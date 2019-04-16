@@ -1,33 +1,43 @@
 \section{Introduction}
+\label{section_intro}
 
 \begin{figure}
-\includegraphics[width=2in]{images/influence_net.jpg}\Description{Sample Influence Network}
-\caption{An example influence network with information flow diffusion}
+\includegraphics[width=2in]{images/cake_cutting.png}\Description{Cake-cutting Problem}
+\caption{Fairness in cake cutting problem}
 \end{figure}
 
-Influence and information flow is one of the important attributes of the graphs. Patterns emerge in any human interaction which extends to many academic disciplines such as psychology, sociology, economics, and anthropology. With the advent of social media, we now have a well documented, semistructured data at our disposal. As more and more people get access to Facebook, Twitter, YouTube, and the likes, it further necessitates the research in various multidisciplinary research communities. Traditionally, it's been extensively analyzed in the online recommendation and advertising. Recently, new complications have started to emerge in regards to the spread of news, fake news, hoax and their effects on society, government, nations and individuals.
+Resource allocation has been one of the primary focus areas of economics since the beginning. It is also one of the most extensively studied one. The real-world is composed of limited resources as well as limited number of people who are going to use those resources. The problem of allocation of resources applies to both conditions in which, on one side, the resources are abundant (excess supply) or the other side where the number of users are larger (excess demand). Even with enough quantity of resources and consumers, each consumer may have different priority for different kinds of resources resulting in a complex allocation problem.
 
-Social influence has always been in attention because of the strong viral powers associated. With the emergence and wide usage of social media, it has achieved the scale it couldn't have without it. With billions of active users at any time, social media generates a tremendous amount of information about people, news, politics and social issues. This information is used by various groups to define and target their business operations such as marketing \cite{hoffman2010can}, campaigning \cite{cogburn2011networked, ratkiewicz2011detecting, shirky2011political, tumasjan2010predicting}, community profiling \cite{papadopoulos2012community, zhou2012community, chandrasekaran2013social} to specific user groups.
+Two important concerns, among many others, in a resource allocation problem are efficiency and fairness. Efficiency criteria try to maximize the value that can be extracted from the available resources. Different types of efficiency criteria exist in resource allocation problem. One criterion may try to achieve the maximum possible value while other may try to optimize the utilization of all the available resources. We study some of these in greater details further in the paper. The fairness criterion tries to achieve overall welfare/goodness for all of the agents involved in the allocation problem. The idea of fairness have different perspectives depending upon the problem being studied. That may include equitability, where every agent gets an equal share in the allocation depending upon the agent's own subjective evaluation of the idea of equal share. Another interesting fairness perspective, which has gained much attention in the economics of fair allocation is envy-freeness. Envy-freeness ensures each agent prefers and values its own allocation more than the allocation of any other agent. We study this in more details in later sections.
 
-Many traditional machine learning methods have addressed the topic of network influence \cite{kempe2003maximizing, abebe2018opinion, albi2017opinion, acemoglu2011opinion, lawyer2015understanding, harada2015forecasting, islamdeepdiffuse}. Some of these methods try to model a specific concept from various disciplines of human studies. For example, \cite{matsubara2012rise} models the social influence dynamics from the "Susceptible-Infected" model where we label each node on its probability of getting influenced along with the current class association or infection. 
+The efficiency and fairness criteria are well studied for various types of goods in the market. One classification of such goods is based on divisibility. A divisible good, as the name suggests, can be described as the one which could be divided in fractions to achieve some form of allocation between multiple agents. Cake-cutting is a famous fair division problem with divisible goods. In cake-cutting problem, we need to divide a cake (or $m$ pieces of cakes) among some number of people in the party. \cite{varian1973equity} proposes competitive equilibrium for equal incomes (CEEI) for such a fair division problem. In CEEI, all agents are given equal income for fairness. Then each agent spends the income on some goods based on the agent's value for the good. In the cake division problem, a young individual may spend more to get a larger portion of the cake than an old person. The allocation is fair in terms of envy-freeness as each agent prefers its own allocation based on the value it has for that allocation. If it has more value, it will spend more to get larger fraction of the divisible good.
 
-Node embedding has recently emerged as an effective and scalable tool for mining all kinds of networks. Existing research has produced excellent results on learning the structure, relationship, and spatial coexistence. DeepWalk \cite{perozzi2014deepwalk}, which we will describe below, learns the node representations in an embedded vector space. It is a scalable method, works on locality. Many tasks such as node classification, edge regeneration, continuity analysis are found to be outperforming traditional methods using the deep neural network based node embeddings.
+\begin{figure}
+\includegraphics[width=3in]{images/indivisible_allocation2x4.png}\Description{Indivisible goods in Inheritance distribution}
+\caption{Utilities of indivisible items in inheritance allocation}
+\end{figure}
 
-But most of the current node embedding methods are restricted to a static analysis of networks \cite{chen2018tutorial, grover2016node2vec, tang2015line, perozzi2017don, tu2016max, cao2016deep, abu2017watch, cao2015grarep}. They take nodes and edges as input and learns the structure of the network. This is great for static networks and tasks based in that. But for tasks such as information propagation and diffusion, the model needs to understand the interaction between the nodes and should be able to encode that interaction in the same node embeddings.
+Introduction of indivisibility in goods takes away the envy-free property of the CEEI. More generally, envy-free solution does not exist for indivisible goods. Consider a simple resource allocation problem with one good and two agents. Since the good is indivisible, only one agent may get the object. The other agent will always envy for not getting the good. \cite{budish2011combinatorial} defines an approximation of the envy-freeness property for approximate-CEEI with indivisible goods. \cite{budish2011combinatorial} defines envy-freeness up to one good (EF1) as an approximation for envy-freeness and proves CEEI to be EF1 for additive utilities.
 
-To get node-level influence prediction, we introduce InfloWalk. Inspired by existing node embedding frameworks, InfloWalk tries to address the node influence information by training the node embedding algorithm on both network structure data as well as node influence data. We further experiment this node embedding method with 3 real-world dataset on the task of node classification. The results shows that the method outperforms the baselines.
+A welfare criteria we analyze in this paper is Nash social welfare. Nash social welfare is the product of values of allocations for each agent. An allocation which maximizes the Nash social welfare has interesting efficiency and fairness properties. The maximum Nash welfare (MNW) solution is envy-free for divisible goods. \cite{caragiannis2016unreasonable} shows MNW to provide efficient and fair solution even for divisible goods. An MNW solution for indivisible goods with additive utilities is guaranteed to be EF1 \cite{caragiannis2016unreasonable} with the same definition of EF1 defined by \cite{budish2011combinatorial}. Along with that, MNW solution is Pareto-optimal, hence uniquely demonstrating the elusive combination of both efficiency and fairness.
 
-Below we list the contributions of the paper:
-\begin{enumerate}
-\item A novel network embedding method which uses not only the network structure but also the influence and information flow networks. This successfully encodes the information flow in the network along with the network structure rather than just encoding the network structure like most of the existing embedding models.
-\item The model is a simple extension of an existing network embedding framework. Because of the scalability and flexibility of the existing framework, this framework shows the same scalability and flex capabilities.
-\item We test the framework on three real-world datasets to show the effectiveness of the proposed method.
-\end{enumerate}
+The MNW solution clearly seems to cater to both of the divisibility based classes of goods. But it assumes the additive nature of values that the agents have for various goods. This assumption hardly holds for the real world which is full of examples showing non-additive utilities of various forms. The EF1 fairness of MNW solution does not hold for non-additive goods. 
+
+In this paper, we consider two such forms of non-additive goods: complementary goods and substitute goods. Complementary goods are the type of goods which show equivalent demand in market. If price for A increases, it's demand will decrease, decreasing the demand of another good B which is a complement of A. Substitute goods show an inverse behaviour. If price for A increases, its demand will decrease; while the demand for B which is A's substitute will increase. Both of these are well analyzed in economics and are used in the form of market strategies for increasing the overall utility and profit from a set of goods \cite{lewbel1985bundling, kojima1975international, bulow1985multimarket}. We relax the definition of envy-freeness up to one good (EF1) \cite{budish2011combinatorial} to introduce envy-freeness up to k goods (EFk). We analyze the efficiency and fairness of maximum Nash Welfare (MNW) for such goods and prove that MNW for such goods is bounded by EFk fairness criteria.
+
+The rest of the paper is structured as follows. We study existing related research and topics in section \ref{section_related}. We introduce, define, and discuss terminologies and definitions in section \ref{section_prelim}. We analyze experimental results in section \ref{section_experiments}. Further, we analyze and formally prove EFk criteria for MNW allocation of complementary and substitute goods in section \ref{section_proof}. Finally, we conclude and discuss future directions in section \ref{section_conclusion}.
+
+% End of section 1 ----------------------------------------------------------
+
+\section{Related Work}
+\label{section_related}
+In this section, we will analyze the existing research on related topics.
 
 
+\hrule
+x
+\hrule
 
-\section{Related Work and Preliminaries}
-In this section, we will analyze the existing research in the related field and introduce some related concepts on which our framework is based on.
 
 \subsection{Network Embeddings}
 Network provides a universal way to structure various real-world information. It provides a way to represent any Entity-Relationship model with easy visualization. Each node has an associated set of features. For example, for social media, it can be a person with some gender, age, affiliations, etc. Similarly, each edge represents a type of relationship one node have with another. For example, a person may be a friend of another, another may be following a celebrity, etc. Nodes may form different networks on different attributes. For example, a friend circle, celebrity followers, related products network. Network studies involve identification of such node and edge features and studying the pattern in the structure of the graph. These studies can be categorized as local and global structures. With ever increasing social media user-base and diversity of the users, global structures are starting to make lesser sense in these types of networks. Our aim in this paper is to study the information flow and influence networks. These are inherently local to the network. This means we will start with one node of interest and try to learn its affiliations.
@@ -40,15 +50,15 @@ DeepWalk \cite{perozzi2014deepwalk} is one of the first such modern deep neural 
 
 DeepWalk \cite{perozzi2014deepwalk} works in three steps. First, creating a network representation in the form of a graph with nodes and edge lists. Second, it performs random walks on the network starting from any node and with a predefined walk-length. Third, these walks are passed to the skip-gram model which creates the node embeddings of a fixed low dimension for all the nodes in the network in an exact same fashion as word embeddings. The results outperform most of the traditional complex methods as you can see in the figure.
 
-\begin{figure}
-\includegraphics[width=2in]{images/karate_net.png}\Description{Karate Network}
-\caption{The karate network}
-\end{figure}
+% \begin{figure}
+% \includegraphics[width=2in]{images/karate_net.png}\Description{Karate Network}
+% \caption{The karate network}
+% \end{figure}
 
-\begin{figure*}
-\includegraphics[width=7in]{images/karate_net_deepwalk.png}\Description{Karate Network Deepwalk}
-\caption{Shows the results of classification using DeepWalk vs traditional methods on the karate network}
-\end{figure*}
+% \begin{figure*}
+% \includegraphics[width=7in]{images/karate_net_deepwalk.png}\Description{Karate Network Deepwalk}
+% \caption{Shows the results of classification using DeepWalk vs traditional methods on the karate network}
+% \end{figure*}
 
 \subsection{Influence Network Learning}
 Influence learning on a higher level can be defined as the effects of one node in the network on others. Influence is an intrinsic part of most of the networks found in real-world. Specifically, social media is completely dependent on the interaction between various users of the network. Any kind of interaction, be it in modern media or real-life, create influence. Influence can also be synonymous with information flow.
@@ -64,6 +74,7 @@ x
 \hrule
 
 \section{Preliminaries}
+\label{section_prelim}
 In this section, we introduce the terminologies and theorems that have been used in further sections.
 
 \subsection{Agents, Goods, Allocations, and Utilities}
@@ -80,6 +91,11 @@ For agent $i$, with an allocation $\mathcal{A}_i$ and its utility function for g
 
 As mentioned previously, we will later see how this changes for different value functions.
 
+% \begin{figure*}
+% \includegraphics[width=7in]{images/utilities.png}\Description{Additive, complementary and substitute utilities}
+% \caption{Additive, complementing, and substitute values in Inheritance distribution}
+% \end{figure*}
+
 \subsection{Additive goods and utilities}
 Formally, additive goods/utilities are the ones who showcase mathematical additive properties. Additive goods are the ones whose utility is independent of others. Additive utilities are same as the one specified in previous section; that is, for agent $i$, the additive utility function is $u_i: M\mapsto \mathbb{R_+}$. Total utility of a set of goods/allocations is equal to the sum of all disjoint subsets.
 \begin{gather}
@@ -89,6 +105,8 @@ Formally, additive goods/utilities are the ones who showcase mathematical additi
 Where $\mathcal{A}_i$ is the allocation of goods to agent i and $u_{i,a}$ is agent i's utility for good a.
 
 \subsection{Complementary goods and utilities}
+\label{section_complementary}
+
 Two goods are said to be complements if demand for one has some form of dependency over the demand of other. In other words, their demands are linked in such a way that increase in one raises the demand of the other, and same the decrease. A popular real-world example of complementary goods is razors blades. If the sell of razors increases, the demand for blades will rise too. This is an example of perfect complements. One can't use razors without blades or the other way. Real-world is full of such examples; burger and fries, hot dogs and buns, cars and gas, etc. Some of them are perfect complements, others are not.
 
 In this paper, we define complements over pairs of adjacent goods. We denote complementing utilities for each agent i as: 
@@ -101,8 +119,18 @@ An agent will earn the complementing utility if its allocation contains both the
 
 **How to write total utility in mathematical form?**
 
-\subsection{Substituting goods and utilities}
+\begin{figure}
+\includegraphics[width=3in]{images/complementary_values.png}\Description{Additive and complementing values in Inheritance distribution}
+\caption{Additive and complementing utilities in inheritance allocation}
+\end{figure}
+
+
+\subsection{Substitute goods and utilities}
+\label{section_substitute}
+
 /* Filler. Replace this
+
+Submodular, supermodular, subadditivity, superadditivity
 
 Two goods are said to be substitutes if demand for one has some form of dependency over the demand of other. In other words, their demands are linked in such a way that increase in one raises the demand of the other, and same the decrease. A popular real-world example of complementary goods is razors blades. If the sell of razors increases, the demand for blades will rise too. This is an example of perfect complements. One can't use razors without blades or the other way. Real-world is full of such examples; burger and fries, hot dogs and buns, cars and gas, etc. Some of them are perfect complements, others are not.
 
@@ -114,9 +142,15 @@ In this paper, we define complements over pairs of adjacent goods. We denote com
 
 An agent will earn the complementing utility if its allocation contains both the goods representing that value, otherwise not. If it does, it will be added to the additive utility to get the total utility of the allocation of agent i.
 
+\begin{figure}
+\includegraphics[width=3in]{images/substitute_values.png}\Description{Additive and substituting values in Inheritance distribution}
+\caption{Additive and substitute utilities in inheritance allocation}
+\end{figure}
+
 */
 
 \subsection{Fairness, Envy, and Envy-freeness}
+\label{section_envy}
 Fairness is one of the primary criteria in any resource allocation problem. The notion of fairness differs with the definition of the allocation problem. Consider the problem of division of a cake among $n$ people. Each person should receive $n$th part of the cake. We extend the problem by starting with $m$ cakes. Share of each person should now be $m/n$. The fairness criterion here is very loose as the only constraint we are trying to satisfy is equal distribution among all. In the same problem, we introduce the concept of age of a person. A person should receive a portion of a cake with respect to the age. Young ones will get more cake than the older. The fairness criteria now is to strictly get more cake if younger and not necessarily equal if same age. The criteria can further be varied if we introduce other types of food and preferences of people over these types.
 
 One fairness criterion studied extensively in literature is Envy-freeness. Envy is defined as an amount with which an agent prefers an allocation of someone else. 
@@ -164,6 +198,7 @@ Also, the definition \ref{def_efk} allows an EFk allocation to be EF(k+1), EF(k+
 
 
 \subsection{Welfare and Maximum Nash Welfare}
+\label{section_welfare}
 Welfare is a concept of an economic system which ensures happiness and well-being of all the participating agents with some agreed definition of happiness or well-being. It follows the idea of fairness from the previous section. A system which is fair to all the constituting members can be said to ensure the welfare of all the participants, and further, the welfare of the entire system. We adopt the terminology of welfare in the resource allocation problem. Given an allocation of goods among agents, we believe we have achieved welfare if we have a fair allocation for each agent.
 
 Like fairness, the notion of welfare differs with the definition of the resource allocation problem. Following the example from the previous section, for the simple cake division problem, equal division of cake among all agents would achieve the welfare in cake distribution. In the extended version of the cake division problem, if each agent receives a fair amount of cake based on the fairness criterion of age, the division will ensure welfare of the system.
@@ -222,6 +257,7 @@ Maximum Nash welfare allocation satisfy the elusive fairness property of envy-fr
 With PO and EF, the maximum Nash welfare, in a great degree of simplicity, is one of the rare algorithms providing us with both efficiency and fairness standards. It is a good balance between the utilitarian vs. egalitarian trade-off. Also, attempting to maximize for utilitarian or egalitarian welfare conditions results in non-EF allocations \cite{caragiannis2016unreasonable}. In that sense, MNW allocation prevails over utilitarian and egalitarian allocation criteria for the strong PO and EF guarantees that it ensures.
 
 \section{Experiments}
+\label{section_experiments}
 In this section, we describe the data, computations, and analysis of the features of the data.
 
 We simulate the problem with $n = 2$ agents competing for allocation of $m$ goods where $m \in \{10, 8, 6, 4\}$. The goods are unrelated, and independent. Each agent has some utility for each of the goods. We generate $m$ additive utilities for each agent at random over $[0, 100)$ representing agent's value for $m$ goods. We further generate $m/2$ complementary utilities for each agent at random over $[0, 100)$ representing agent's valuation for pairs of goods. Each complementary utility represents the collective value an agent would get if both the goods are allocated to the agent. We generate 100 samples each with random seed [10, 20) for reproducibility. Overall, we have $1000$ such examples for each value of $m \in {10, 8, 6, 4}$. In addition to that, we map these examples on to four types of goods showing : i) Additive utilities ii) Complementing utilities iii) Substituting utilities type 1 iv) Substituting utilities type 2.  MNW is computed for each of these sample with respect to four types of utilities with algorithm 1.
@@ -633,6 +669,7 @@ Figure 7 plots the mean negative envy in the allocations after dropping 0, 1, an
 Figure 8-11 plot the distributions of envy for simulated 1000 samples. As discussed about other plots, the decrease in number of goods can directly be seen in increase in number of envied allocations. These curves give a nice shape to the envy calculations before and after dropping goods for EF0, EF1, and EF2 calculations. Figure 8-11 show both, final envy after dropping the good and that sorted on the sampling x-axis which forms a smooth shape with rest of the distribution curve.
 
 \section{MNW and EFk}
+\label{section_proof}
 In this section, we analyze the relation between maximum Nash welfare and envy-freeness up to k goods.
 
 We already know MNW allocations for additive utility values are envy-free up to one good (EF1) \cite{caragiannis2016unreasonable}. The experiments on goods with additive utilities in previous section provide the experimental evidence to that fact.
@@ -725,6 +762,7 @@ Since $G^* \subseteq \mathcal{A}_j where |G| \leq k$ and maximum possibility of 
 \end{proof}
 
 \section{Conclusion and Future Work}
+\label{section_conclusion}
 
 The primary aim of this paper is to analyze and prove the envy-freeness bounds for specialized markets that showcase different utilities than the generic additive utilities. We start with defining the types of goods and the various ways they may get valued by agents. Namely, we identify additive, complementing, substituting type goods and utilities. We define fairness criteria, welfare and their interpretation in efficiency vs fairness trade-off. 
 
