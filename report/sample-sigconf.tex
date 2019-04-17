@@ -17,6 +17,7 @@
 \usepackage{amsthm} % For better theorem structures
 \usepackage[ruled]{algorithm2e} % For algorithms
 \usepackage{subcaption} % For multiple images in a section
+\usepackage{natbib} % For better citations
 
 \renewcommand{\algorithmcfname}{ALGORITHM}
 
@@ -70,10 +71,9 @@
 
 
 \begin{abstract}
-Influence and information flow is inherent and inseparable part of most of the graphs. Graphs showcase patterns not only in the structure but also in the flow of the information through the structure. Specifically, some of the networks like social media, needs a different treatment than other networks as each node and the edge represent a person and their inherent, impulse action in a day to day life. Defining the network this way makes us understand that the flow of information is equally or sometimes more important than the structure of the network itself.
+\label{section_abstract}
 
-Conventional influence learning approaches focus on building hand-crafted rules to perform feature engineering on each type of transactions between various nodes. This necessitates a deep knowledge of network domain. Also, it is often difficult to manually analyze and engineer the latent, high-dimensional, obscure features which are observed to provide a better representation of the network. Node embedding has recently emerged as an effective and scalable tool for mining all kinds of a networks. Deep learning based node embedding methods are able to identify and learn complex latent features in much simpler ways. Inspired by their results, in this paper we'll try to understand how to extend node embeddings for networks with directional information flow. We propose InfloWalk, a method to learn network embeddings based on network structure and the flow of information/influence in the network. On higher level, InfloWalk performs intelligent walks over the network following the flow of influence. Further, we will perform some experiments on real world datasets to analyze the effectiveness of the proposed method.
-
+Maximum Nash welfare (MNW) solution to the resource allocation problem has garnered attention for satisfying an illusive combination of efficiency and fairness properties in the form of Pareto Optimality (PO) and approximated envy-freeness (EF1) for indivisible goods with additive valuations \cite{caragiannis2016unreasonable}. Though, individually, each of those properties are easily achievable by maximizing the utilitarian vs egalitarian parameters of a welfare solution, a combination of them brings in a rare feat for MNW solution. Most of the existing research in this area are based on the assumption that the goods showcase additive valuations. But the real-world is hardly defined as such and is full of examples showing non-additive valuations of various forms. We extend the resource allocation problem with two forms of non-additive utilities; complementary and substitute. We simulate the MNW solutions with such dependent valuations. The experimental analysis show that the MNW solution satisfies the relaxed version of envy-freeness property along with the efficiency.  We show that MNW solution is both Pareto optimal and envy-free up to $k$ goods (EFk), where $k$ represents a maximum external dependency of valuation of the good.
 
 \end{abstract}
 
@@ -82,19 +82,25 @@ Conventional influence learning approaches focus on building hand-crafted rules 
 % http://dl.acm.org/ccs.cfm
 % Please copy and paste the code instead of the example below.
 %
- \begin{CCSXML}
+\begin{CCSXML}
 <ccs2012>
 <concept>
-<concept_id>10002951.10003227.10003351</concept_id>
-<concept_desc>Information systems~Data mining</concept_desc>
+<concept_id>10010405.10010455.10010460</concept_id>
+<concept_desc>Applied computing~Economics</concept_desc>
 <concept_significance>500</concept_significance>
+</concept>
+<concept>
+<concept_id>10003752.10010070.10010099.10010101</concept_id>
+<concept_desc>Theory of computation~Algorithmic mechanism design</concept_desc>
+<concept_significance>300</concept_significance>
 </concept>
 </ccs2012>
 \end{CCSXML}
 
-\ccsdesc[500]{Information systems~Data mining}
+\ccsdesc[500]{Applied computing~Economics}
+\ccsdesc[300]{Theory of computation~Algorithmic mechanism design}
 
-\keywords{Network Embedding, Influence Embedding, Representation Learning, Social Networks}
+\keywords{Fair division, Resource allocation, Nash social welfare, Envy-freeness}
 
 \maketitle
 

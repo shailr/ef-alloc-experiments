@@ -10,16 +10,16 @@ Resource allocation has been one of the primary focus areas of economics since t
 
 Two important concerns, among many others, in a resource allocation problem are efficiency and fairness. Efficiency criteria try to maximize the value that can be extracted from the available resources. Different types of efficiency criteria exist in resource allocation problem. One criterion may try to achieve the maximum possible value while other may try to optimize the utilization of all the available resources. We study some of these in greater details further in the paper. The fairness criterion tries to achieve overall welfare/goodness for all of the agents involved in the allocation problem. The idea of fairness have different perspectives depending upon the problem being studied. That may include equitability, where every agent gets an equal share in the allocation depending upon the agent's own subjective evaluation of the idea of equal share. Another interesting fairness perspective, which has gained much attention in the economics of fair allocation is envy-freeness. Envy-freeness ensures each agent prefers and values its own allocation more than the allocation of any other agent. We study this in more details in later sections.
 
-The efficiency and fairness criteria are well studied for various types of goods in the market. One classification of such goods is based on divisibility. A divisible good, as the name suggests, can be described as the one which could be divided in fractions to achieve some form of allocation between multiple agents. Cake-cutting is a famous fair division problem with divisible goods. In cake-cutting problem, we need to divide a cake (or $m$ pieces of cakes) among some number of people in the party. \cite{varian1973equity} proposes competitive equilibrium for equal incomes (CEEI) for such a fair division problem. In CEEI, all agents are given equal income for fairness. Then each agent spends the income on some goods based on the agent's value for the good. In the cake division problem, a young individual may spend more to get a larger portion of the cake than an old person. The allocation is fair in terms of envy-freeness as each agent prefers its own allocation based on the value it has for that allocation. If it has more value, it will spend more to get larger fraction of the divisible good.
+The efficiency and fairness criteria are well studied for various types of goods in the market. One classification of such goods is based on divisibility. A divisible good, as the name suggests, can be described as the one which could be divided in fractions to achieve some form of allocation between multiple agents. Cake-cutting is a famous fair division problem with divisible goods. In cake-cutting problem, we need to divide a cake (or $m$ pieces of cakes) among some number of people in the party. \citet{varian1973equity} proposes competitive equilibrium for equal incomes (CEEI) for such a fair division problem. In CEEI, all agents are given equal income for fairness. Then each agent spends the income on some goods based on the agent's value for the good. In the cake division problem, a young individual may spend more to get a larger portion of the cake than an old person. The allocation is fair in terms of envy-freeness as each agent prefers its own allocation based on the value it has for that allocation. If it has more value, it will spend more to get larger fraction of the divisible good.
 
 \begin{figure}
 \includegraphics[width=3in]{images/indivisible_allocation2x4.png}\Description{Indivisible goods in Inheritance distribution}
 \caption{Utilities of indivisible items in inheritance allocation}
 \end{figure}
 
-Introduction of indivisibility in goods takes away the envy-free property of the CEEI. More generally, envy-free solution does not exist for indivisible goods. Consider a simple resource allocation problem with one good and two agents. Since the good is indivisible, only one agent may get the object. The other agent will always envy for not getting the good. \cite{budish2011combinatorial} defines an approximation of the envy-freeness property for approximate-CEEI with indivisible goods. \cite{budish2011combinatorial} defines envy-freeness up to one good (EF1) as an approximation for envy-freeness and proves CEEI to be EF1 for additive utilities.
+Introduction of indivisibility in goods takes away the envy-free property of the CEEI. More generally, envy-free solution does not exist for indivisible goods. Consider a simple resource allocation problem with one good and two agents. Since the good is indivisible, only one agent may get the object. The other agent will always envy for not getting the good. \citet{budish2011combinatorial} defines an approximation of the envy-freeness property for approximate-CEEI with indivisible goods. \citet{budish2011combinatorial} defines envy-freeness up to one good (EF1) as an approximation for envy-freeness and proves CEEI to be EF1 for additive utilities.
 
-A welfare criteria we analyze in this paper is Nash social welfare. Nash social welfare is the product of values of allocations for each agent. An allocation which maximizes the Nash social welfare has interesting efficiency and fairness properties. The maximum Nash welfare (MNW) solution is envy-free for divisible goods. \cite{caragiannis2016unreasonable} shows MNW to provide efficient and fair solution even for divisible goods. An MNW solution for indivisible goods with additive utilities is guaranteed to be EF1 \cite{caragiannis2016unreasonable} with the same definition of EF1 defined by \cite{budish2011combinatorial}. Along with that, MNW solution is Pareto-optimal, hence uniquely demonstrating the elusive combination of both efficiency and fairness.
+A welfare criteria we analyze in this paper is Nash social welfare. Nash social welfare is the product of values of allocations for each agent. An allocation which maximizes the Nash social welfare has interesting efficiency and fairness properties. The maximum Nash welfare (MNW) solution is envy-free for divisible goods. \citet{caragiannis2016unreasonable} shows MNW to provide efficient and fair solution even for divisible goods. An MNW solution for indivisible goods with additive utilities is guaranteed to be EF1 \cite{caragiannis2016unreasonable} with the same definition of EF1 defined by \citet{budish2011combinatorial}. Along with that, MNW solution is Pareto-optimal, hence uniquely demonstrating the elusive combination of both efficiency and fairness.
 
 The MNW solution clearly seems to cater to both of the divisibility based classes of goods. But it assumes the additive nature of values that the agents have for various goods. This assumption hardly holds for the real world which is full of examples showing non-additive utilities of various forms. The EF1 fairness of MNW solution does not hold for non-additive goods. 
 
@@ -31,47 +31,18 @@ The rest of the paper is structured as follows. We study existing related resear
 
 \section{Related Work}
 \label{section_related}
-In this section, we will analyze the existing research on related topics.
 
+A variety of research has been done on the idea of resource allocation because of the omnipresence of the problem. The origin of fair resource allocation can be tracked to the introduction of cake-cutting problem by \citet{steihaus1948problem} in the post-WWII era. Fair solution for divisible goods has since been the primary focus. \citet{stern1958puzzle} proposed an illusive fairness property called envy-freeness. It is further formalized by \citet{foley1967resource}, \citet{varian1973equity}. Many fair allocation solutions are developed with envy-freeness as the fairness criteria, for example \citet{stromquist2008envy}, \citet{brams1996fair} and much recently \citet{aziz2016discrete}.
 
-\hrule
-x
-\hrule
+Most of the envy-free fair allocation research have a basic assumption about the divisibility of goods. Envy-free allocation is studied relatively far lesser for indivisible goods. This is because, envy-free allocation does not exist for indivisible goods. Consider a simple example of a resource allocation problem with one indivisible good and two agents. The good can be allocated to only one of the agents and the other agent will always have envy. An envy-free allocation is not possible for such a problem. With impossibility of envy-free solution for indivisible goods, researchers focused on other welfare properties. \citet{matt2006egalitarian} explores welfare solution with egalitarian allocations for indivisible goods.
 
+The recent studies of envy-freeness for indivisible goods are inspired by the rise of the approximations in the envy-free fairness criteria. \citet{lipton2004approximately} analyzes the existence of allocations in which envy is bounded by maximum marginal utility. This serves as the conceptual origin of the approximation of envy-freeness up to one good. \citet{budish2011combinatorial} approximates the Competitive Equilibrium for Equal Incomes (CEEI) \cite{varian1973equity} to define and prove that approximate-CEEI is envy-free up to one good (EF1) for indivisible goods. \citet{budish2011combinatorial} successfully demonstrate the approximate-CEEI approach in the real-world problem of MBA course allocation setting. 
 
-\subsection{Network Embeddings}
-Network provides a universal way to structure various real-world information. It provides a way to represent any Entity-Relationship model with easy visualization. Each node has an associated set of features. For example, for social media, it can be a person with some gender, age, affiliations, etc. Similarly, each edge represents a type of relationship one node have with another. For example, a person may be a friend of another, another may be following a celebrity, etc. Nodes may form different networks on different attributes. For example, a friend circle, celebrity followers, related products network. Network studies involve identification of such node and edge features and studying the pattern in the structure of the graph. These studies can be categorized as local and global structures. With ever increasing social media user-base and diversity of the users, global structures are starting to make lesser sense in these types of networks. Our aim in this paper is to study the information flow and influence networks. These are inherently local to the network. This means we will start with one node of interest and try to learn its affiliations.
+\citet{caragiannis2016unreasonable} studies the properties of another welfare solution called Nash welfare. An allocation that maximizes total Nash welfare showcases interesting efficiency and fairness properties in the form of Pareto Optimality (PO) and Envy-freeness up to one good (EF1) for indivisible goods with additive utilities. But \citet{ramezani2009nash} shows that the complexity of computing maximum Nash Welfare (MNW) is NP-hard for additive valuations. For divisible goods, \citet{eisenberg1959consensus} computes MNW solution in polynomial time using convex programs. But such computation methods does not work for indivisible goods. \citet{cole2015approximating} comes up with a constant-factor polynomial-time approximation for MNW computation with additive utilities. \citet{lee2017apx} show that the problem of computing MNW is APX-hard, which means constant-factor approximations is the only possible way to improve the computation. \citet{cole2017convex} and \citet{barman2018finding} show further improvement in the constant-factor approximations.
 
-Network embedding can basically be seen as a mapping of each node in the network to a low dimensional latent representation. These low dimensional latent vectors can then be used in general network analysis tasks such as clustering, classification, labeling, link prediction, and visualizations. A few important features listed by \cite{chen2018tutorial} are adaptability, scalability, community awareness, low dimensions, and continuous vector space.
+Further, most of the MNW computations assume additive nature of the valuations of the goods which is not the case in real-world resource allocation problems. \citet{reiter1962allocating} discusses allocation of indivisible resources in the non-additive external economies and diseconomies. \citet{arnsperger1994envy} analyzes envy-freeness in the situation of consumptive talents which showcase preference over a bundle of divisible entities. \citet{alvisi2009complementing} provides detailed analysis of real-world situations and examples of complementing and substituting resources. They further analyze the properties of Nash equilibrium resulting out of such combination of resources and the advantages/disadvantages of such strategies. \citet{branzei2017nash} comes closest to the area of research in this paper. \citet{branzei2017nash} studies approximation of Nash Social Welfare (NSW) for two classes of valuations: additive and Leontief, where additive is equivalent to substitute goods and Leontief is equivalent to complementary goods. Authors keep the analysis generic for it to be applicable to both divisible and indivisible goods. \citet{branzei2017nash} differs from our work in the sense that, the study is focused on approximating NSW and does not analyze efficiency and fairness bound properties of such an allocation.
 
-Traditionally, methods like Principle Component Analysis PCA \cite{krackhardt1988predicting} and Multi-dimensional Scaling (MDS) \cite{breiger1975algorithm} has widely been used to learn the low dimensional network representation. But many times traditional methods fail to identify local features as they see the network as a whole learning dataset at the same time. In the modern world of deep neural networks, we have new methods which try to solve these issues.
-
-DeepWalk \cite{perozzi2014deepwalk} is one of the first such modern deep neural network based method. Highly inspired by the idea of word-embeddings, DeepWalk \cite{perozzi2014deepwalk} uses the same skip-gram model and applies it on random walks in the network. Both problems of generating walks and learning skip-gram models are extensively studied. They are parallelizable and hence highly scalable. DeepWalk \cite{perozzi2014deepwalk} introduces deep neural network methods to the world of graphs and networks.
-
-DeepWalk \cite{perozzi2014deepwalk} works in three steps. First, creating a network representation in the form of a graph with nodes and edge lists. Second, it performs random walks on the network starting from any node and with a predefined walk-length. Third, these walks are passed to the skip-gram model which creates the node embeddings of a fixed low dimension for all the nodes in the network in an exact same fashion as word embeddings. The results outperform most of the traditional complex methods as you can see in the figure.
-
-% \begin{figure}
-% \includegraphics[width=2in]{images/karate_net.png}\Description{Karate Network}
-% \caption{The karate network}
-% \end{figure}
-
-% \begin{figure*}
-% \includegraphics[width=7in]{images/karate_net_deepwalk.png}\Description{Karate Network Deepwalk}
-% \caption{Shows the results of classification using DeepWalk vs traditional methods on the karate network}
-% \end{figure*}
-
-\subsection{Influence Network Learning}
-Influence learning on a higher level can be defined as the effects of one node in the network on others. Influence is an intrinsic part of most of the networks found in real-world. Specifically, social media is completely dependent on the interaction between various users of the network. Any kind of interaction, be it in modern media or real-life, create influence. Influence can also be synonymous with information flow.
-
-Traditionally, the influence was being modeled with a specialized domain-specific concept. For example, \cite{matsubara2012rise} defines social influence by modeling complex differential equations from an existing social model. A few other research uses behavior propagation modeling based on Ekman's model of emotion. \cite{wang2017gang} uses Guilt-by-association models which look into the features of the nodes in immediate neighborhood of the node under consideration. \cite{kempe2003maximizing} uses information diffusion mechanism to study the flow of information from source to across the network and further uses cascading to maximize the flow.
-
-Influence network learning requires more data than just the nodes and the edges of the network. To model influence, we need information about every interaction between the nodes, for example, contents of the interaction, type of interaction, time of interaction, the response time, average response time, etc.
-
-Most network embedding methods use and learn the network structure. But, they don't work on modeling the influence or the information flow. \cite{qiu2018deepinf} comes closest to the topic of this paper, where they use deep neural networks to predict the classification.
-
-\hrule
-x
-\hrule
+% End of section 2 ----------------------------------------------------------
 
 \section{Preliminaries}
 \label{section_prelim}
@@ -168,9 +139,9 @@ For a simple cake division problem, each person would want a piece of size great
 
 In the extended version of the problem, the idea of envy should reflect the age of the person. In an envy-free allocation, each person will have a piece of cake according to their own age and ensuring the fact that they don't want the piece of any other person. 
 
-Fair distribution of a cake is an example of divisible goods. There always exist an envy-free solution for the allocation of divisible goods [cite]. Though, increasing the number of agents, increases the complexity of the envy-free allocation and it may take a very long time for computation [cite].
+Fair distribution of a cake is an example of divisible goods. There always exist an envy-free solution for the allocation of divisible goods [citet]. Though, increasing the number of agents, increases the complexity of the envy-free allocation and it may take a very long time for computation [citet].
 
-The problem gets difficult for indivisible goods. In a simple example with one item and two agents, where both have positive utilities for the item, the item can only be allocated to one of the agents. No matter which agent gets the item, the other agent will always envy for not getting the item. Envy-free division can not be guaranteed in general for the case of indivisible goods. The problem of determining whether an allocation exists, which is envy-free, is computationally hard [cite].
+The problem gets difficult for indivisible goods. In a simple example with one item and two agents, where both have positive utilities for the item, the item can only be allocated to one of the agents. No matter which agent gets the item, the other agent will always envy for not getting the item. Envy-free division can not be guaranteed in general for the case of indivisible goods. The problem of determining whether an allocation exists, which is envy-free, is computationally hard [citet].
 
 For feasibility, we weaken the constraint on envy-freeness and attempt allocation under these constraint.
 
@@ -211,7 +182,7 @@ An egalitarian welfare tries to maximize well-being or happiness of all agents. 
 
 The simple cake division problem described above is both utilitarian and egalitarian. Every agent gets an equal share of the cake, and since every agent have the same value for the cake, the distribution achieves maximum efficiency. For the extended version of the cake division problem, the value for the cake is inversely proportional to the age of the person. The egalitarian welfare solution would allocate an equal amount of cake to everyone, whereas the utilitarian welfare solution would distribute cake based on the value.
 
-The maximum Nash welfare (MNW) solution provides both fairness and efficiency. We follow the definition the MNW solution by Caragiannis, Ioannis, et al. \cite{caragiannis2016unreasonable}
+The maximum Nash welfare (MNW) solution provides both fairness and efficiency. We follow the definition the MNW solution by \citet{caragiannis2016unreasonable}
 
 \begin{definition}{Nash welfare (NW) or Nash product} \label{def_nw}
 Nash welfare or Nash product is a product of utilities of agents for allocated goods with a condition that every agent values it's allocation positively
@@ -249,12 +220,14 @@ Every MNW allocation is Pareto optimal (PO) over indivisible goods.
 \end{theorem}
 
 \begin{proof}
-We follow a simple proof of Pareto optimality for MNW by Caragiannis, Ioannis, et al. \cite{caragiannis2016unreasonable}. It is trivial for every MNW allocation $\mathcal{A}$ to be PO because any alternate allocation $\mathcal{A}'$ that increases the utility of one agent without decreasing the utility of any other agent would result in increase in the Nash welfare of the alternate allocation $\mathcal{A}'$, that is $NW(\mathcal{A}') > NW(\mathcal{A})$, contradicting the assumption that the original MNW allocation $\mathcal{A}$ had the maximum/optimal NW of all the possible allocations. 
+We follow a simple proof of Pareto optimality for MNW by \citet{caragiannis2016unreasonable}. It is trivial for every MNW allocation $\mathcal{A}$ to be PO because any alternate allocation $\mathcal{A}'$ that increases the utility of one agent without decreasing the utility of any other agent would result in increase in the Nash welfare of the alternate allocation $\mathcal{A}'$, that is $NW(\mathcal{A}') > NW(\mathcal{A})$, contradicting the assumption that the original MNW allocation $\mathcal{A}$ had the maximum/optimal NW of all the possible allocations. 
 \end{proof}
 
 Maximum Nash welfare allocation satisfy the elusive fairness property of envy-freeness (EF) defined in the previous section. This is further studied and proved in the next section.
 
 With PO and EF, the maximum Nash welfare, in a great degree of simplicity, is one of the rare algorithms providing us with both efficiency and fairness standards. It is a good balance between the utilitarian vs. egalitarian trade-off. Also, attempting to maximize for utilitarian or egalitarian welfare conditions results in non-EF allocations \cite{caragiannis2016unreasonable}. In that sense, MNW allocation prevails over utilitarian and egalitarian allocation criteria for the strong PO and EF guarantees that it ensures.
+
+% End of section 3 ----------------------------------------------------------
 
 \section{Experiments}
 \label{section_experiments}
@@ -668,6 +641,8 @@ Figure 7 plots the mean negative envy in the allocations after dropping 0, 1, an
 
 Figure 8-11 plot the distributions of envy for simulated 1000 samples. As discussed about other plots, the decrease in number of goods can directly be seen in increase in number of envied allocations. These curves give a nice shape to the envy calculations before and after dropping goods for EF0, EF1, and EF2 calculations. Figure 8-11 show both, final envy after dropping the good and that sorted on the sampling x-axis which forms a smooth shape with rest of the distribution curve.
 
+% End of section 4 ----------------------------------------------------------
+
 \section{MNW and EFk}
 \label{section_proof}
 In this section, we analyze the relation between maximum Nash welfare and envy-freeness up to k goods.
@@ -761,6 +736,8 @@ Since $G^* \subseteq \mathcal{A}_j where |G| \leq k$ and maximum possibility of 
 
 \end{proof}
 
+% End of section 5 ----------------------------------------------------------
+
 \section{Conclusion and Future Work}
 \label{section_conclusion}
 
@@ -772,10 +749,12 @@ There is a wide range of applications of such type of utilities. The real world 
 
 Future work can also focus on identifying other valuation criteria, additive or not, which follows similar patterns and entails strong efficiency and welfare bounds.
 
+% End of section 6 ----------------------------------------------------------
+
 \begin{acks}
 This paper is due as a part of CS597 - Project Research as a graduation requirement for master of science in computer science with the Department of Computer Science at University of Illinois at Chicago.
 
-I would like to express my gratitude to my research advisor Prof. Ian Kash for the introduction, guidance, and immense support in the research area, and in general. I would also like to acknowledge Prof.               for being the part of the review committee. I would like to thank the class of CS594 - Economics in CS for the deeper knowledge of background and discussion on interesting concept surrounding the topic of this paper.
+I would like to express my gratitude to my research advisor Prof. Ian Kash for the introduction, guidance, and immense support in the research area, and in general. I would also like to acknowledge Prof.           for being the part of the review committee. I would like to thank the class of CS594 - Economics in CS for the deeper knowledge of background and discussion on interesting concept surrounding the topic of this paper.
 
 
 \end{acks}
