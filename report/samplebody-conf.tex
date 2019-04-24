@@ -49,18 +49,16 @@ Further, most of the MNW computations assume additive nature of the valuations o
 In this section, we introduce the terminologies and theorems that have been used in further sections.
 
 \subsection{Agents, Goods, Allocations, and Utilities}
-Agents are a set of actors who try to claim the ownership over a set of goods. Goods are the set of objects which are to be allocated among the agents. Let us denote the set of $\mathit{n}$ agents with $\mathcal{N}$ and $\mathcal{M}$ be the set of $\mathit{m}$ indivisible goods.
+Agents are a set of actors trying to claim ownership over a set of goods. Goods are the set of objects which are to be allocated among the agents. We denote the set of $n$ agents as $\mathcal{N}$ and the set of $m$ indivisible goods as $\mathcal{M}$.
 
-Each agent have an associated utility for a particular good. In other words, each agent values a set of goods over others by a quantity. This is called a valuation function or an utility function. For agent $i$, the utility function is $f_i: M\mapsto \mathbb{R_+}$, where $\mathbb{R_+}$ is the set of positive real numbers. Here we assume each agent values the goods positively. We will encounter utility functions again in this section when we discuss some specific types of market later in the section.
+Each agent has an associated utility for a particular good. In other words, each agent values a good over others by a quantity. This is called a valuation function or an utility function. For agent $i$, the value $V_i: \mathcal{M}\rightarrow \mathbb{R_+}$, where $\mathbb{R_+}$ is the set of non-negative real numbers. We assume each agent values the goods positively.
 
-An allocation is a distribution of goods into shares or portions. When we have only one quantity of each goods, each agent shows binary allocations. It owns/gets the good or it doesn't. It is illustrated in figure xyz1. If we have more than one count for any goods, an agent can get any permutation of it. We are assuming a single amount of each good unless specified otherwise. An allocation $\mathcal{A}_i\subseteq \mathcal{M}$ for any agent $i$.
+An allocation is a division of available resources into agent-specific shares through some mechanism. When we have only one quantity of each good, each agent shows binary allocations. It either owns the good or it does not. If we have more than one count for any goods, an agent can get any permutation of available goods. We are assuming one count of each good unless specified otherwise. An allocation $\mathcal{A}_i\subseteq \mathcal{M}$ for any agent $i$.
 
-For agent $i$, with an allocation $\mathcal{A}_i$ and its utility function for goods $f_i$, we can calculate the agent's total value of the allocation as
+For some agent $i$ with allocation $\mathcal{A}_i$ and utility $V_i$, the agent's total value of the allocation is given by
 \begin{gather}
-    F_i = \sum_{a \in \mathcal{A}_i} f_i(a)
+    U(\mathcal{A}_i): 2^m \rightarrow \mathbb{R_+}
 \end{gather}
-
-As mentioned previously, we will later see how this changes for different value functions.
 
 % \begin{figure*}
 % \includegraphics[width=7in]{images/utilities.png}\Description{Additive, complementary and substitute utilities}
@@ -68,27 +66,31 @@ As mentioned previously, we will later see how this changes for different value 
 % \end{figure*}
 
 \subsection{Additive goods and utilities}
-Formally, additive goods/utilities are the ones who showcase mathematical additive properties. Additive goods are the ones whose utility is independent of others. Additive utilities are same as the one specified in previous section; that is, for agent $i$, the additive utility function is $u_i: M\mapsto \mathbb{R_+}$. Total utility of a set of goods/allocations is equal to the sum of all disjoint subsets.
+Formally, additive goods/utilities are the ones who showcase mathematical additive properties. Additive goods are the ones whose utility is independent of others. Additive utilities are same as the one specified in previous section; that is, for agent $i$, the additive utility function is $V_i: \mathcal{M} \rightarrow \mathbb{R_+}$. Total utility of a set of goods/allocations is equal to the sum of all disjoint subsets.
 \begin{gather}
-    U_i = \sum_{a \in \mathcal{A}_i} u_{i,a}
+    U_i = \sum_{a \in \mathcal{A}_i} V_{i,a}
 \end{gather}
 
-Where $\mathcal{A}_i$ is the allocation of goods to agent i and $u_{i,a}$ is agent i's utility for good a.
+Where $\mathcal{A}_i$ is the allocation of goods to agent $i$ and $V_{i,a}$ is agent $i$'s value for good $a$.
 
 \subsection{Complementary goods and utilities}
 \label{section_complementary}
 
 Two goods are said to be complements if demand for one has some form of dependency over the demand of other. In other words, their demands are linked in such a way that increase in one raises the demand of the other, and same the decrease. A popular real-world example of complementary goods is razors blades. If the sell of razors increases, the demand for blades will rise too. This is an example of perfect complements. One can't use razors without blades or the other way. Real-world is full of such examples; burger and fries, hot dogs and buns, cars and gas, etc. Some of them are perfect complements, others are not.
 
-In this paper, we define complements over pairs of adjacent goods. We denote complementing utilities for each agent i as: 
+In this paper, we define complements over pairs of adjacent goods. We denote complementary goods for each agent $i$ as: 
 
 \begin{gather}
-    v_i: \forall_{j < |M|/2} (M_{2j}, M_{2j+1})\mapsto \mathbb{R_+}
+    C_i: \frac{\mathcal{M}}{2} \rightarrow \mathbb{R_+}
+    % v_i: \forall_{j < |M|/2} (M_{2j}, M_{2j+1})\mapsto \mathbb{R_+}
 \end{gather}
 
 An agent will earn the complementing utility if its allocation contains both the goods representing that value, otherwise not. If it does, it will be added to the additive utility to get the total utility of the allocation of agent i.
 
-**How to write total utility in mathematical form?**
+*Fix this*
+$$
+    U_i = \sum_{a \in \mathcal{A}_i} v_{i,a} + \sum_{a \in \mathcal{A}_j \forall j \ni 2j < n, (2j+1) \leq n} C_{j,a}
+$$
 
 \begin{figure}
 \includegraphics[width=3in]{images/complementary_values.png}\Description{Additive and complementing values in Inheritance distribution}
@@ -122,18 +124,23 @@ An agent will earn the complementing utility if its allocation contains both the
 
 \subsection{Fairness, Envy, and Envy-freeness}
 \label{section_envy}
-Fairness is one of the primary criteria in any resource allocation problem. The notion of fairness differs with the definition of the allocation problem. Consider the problem of division of a cake among $n$ people. Each person should receive $n$th part of the cake. We extend the problem by starting with $m$ cakes. Share of each person should now be $m/n$. The fairness criterion here is very loose as the only constraint we are trying to satisfy is equal distribution among all. In the same problem, we introduce the concept of age of a person. A person should receive a portion of a cake with respect to the age. Young ones will get more cake than the older. The fairness criteria now is to strictly get more cake if younger and not necessarily equal if same age. The criteria can further be varied if we introduce other types of food and preferences of people over these types.
+Fairness is one of the primary criteria in any resource allocation problem. The notion of fairness differs with the definition of the allocation problem. Consider the problem of division of a cake among $n$ people. Each person should receive $n$th part of the cake. We extend the problem by starting with $m$ cakes. Share of each person should now be $m/n$. The fairness criterion here is very loose as the only constraint we are trying to satisfy is equal distribution among all. In the same problem, we introduce the concept of age of a person. A person should receive a portion of a cake with respect to the age. Young ones would get more cake than the older. The fairness criteria now is to strictly get more cake if younger and not necessarily equal if same age. The criteria can further be varied by introducing different types of food and preferences of people over the types of food.
 
-One fairness criterion studied extensively in literature is Envy-freeness. Envy is defined as an amount with which an agent prefers an allocation of someone else. 
+One fairness criterion studied extensively in literature is envy-freeness. Envy is defined as an amount with which an agent prefers an allocation of someone else. 
 
-\subsubsection{Definition 3.1} Envy.
+\begin{definition}{Envy}
+\label{def_envy}
 An agent $i$ with a value of $v_{ia}$ for a good $a$ which is allocated to agent $j$ who has a value of $v_{ja}$ for the same good $a$ envies agent $j$ by an
 amount $e_{ij} = v_{ja} - v_{ia}$. The entity $e_{ij} \geq 0$ implies agent $i$ does not envy agent $j$, whereas $|e_{ij}|$ is the amount of envy $i$ has for $j$ otherwise. Extending the same to the entire allocation $\mathcal{A}_i$ instead of a single good, $E_{ij} = V_i(\mathcal{A}_j) - V_i(\mathcal{A}_i)$, where $V_i$ is the value function for agent $i$, and $\mathcal{A}_i$ and $\mathcal{A}_j$ are allocations of $i$ and $j$, respectively.
+\end{definition}
 
 Envy-freeness (EF) is a notion of fair allocation where every agent prefers their own allocation over that of any other agent. In other words, every agent feels their allocation is better than or at least as valuable as the allocation of any other agent.
 
-\subsubsection{Definition 3.2} Envy-freeness (EF).
+
+\begin{definition}{Envy-freeness (EF)}
+\label{def_envyfree}
 An allocation is envy-free if $\mathcal{A}_i \succeq_i \mathcal{A}_j \forall i,j$ where $\mathcal{A}_i$ and $\mathcal{A}_j$ is the allocation of $i$ and $j$, respectively. Given a value function $V_i$ for agent $i$, $V_i(\mathcal{A}_i) \geq V_i(\mathcal{A}_j)$ $\forall i,j$. 
+\end{definition}
 
 For a simple cake division problem, each person would want a piece of size greater than or at least equal to any other person. No one would want to exchange their piece with anyone else. This results in everyone having same sized pieces of the cake.
 
@@ -159,7 +166,7 @@ We further relax the envy-freeness fairness criterion for up to $k$ goods.
 \label{def_efk}
 An allocation $\mathcal{A}$ is envy-free up to $k$ goods (EFk) if for all agents $i$, $j$, agent $i$ will stop envying agent $j$ if a set of goods $\mathcal{G} \subseteq \mathcal{A}_j$, such that $|\mathcal{G}| = k$, is dropped from the allocations of agent $j$, $\mathcal{A}_j$. Formally,
 $$
-    \forall i,j \in \mathcal{N}, k \leq |\mathcal{M}|, \exists \mathcal{G} \subseteq \mathcal{A}_j, |G| = k, V_i(\mathcal{A}_i) \geq V_i(\mathcal{A}_j \backslash \{\mathcal{G}\})
+    \forall i,j \in \mathcal{N}, k \leq |\mathcal{M}|, \exists G \subseteq \mathcal{A}_j, |G| = k, V_i(\mathcal{A}_i) \geq V_i(\mathcal{A}_j \backslash \{G\})
 $$
 \end{definition}
 
@@ -170,13 +177,13 @@ Also, the definition \ref{def_efk} allows an EFk allocation to be EF(k+1), EF(k+
 
 \subsection{Welfare and Maximum Nash Welfare}
 \label{section_welfare}
-Welfare is a concept of an economic system which ensures happiness and well-being of all the participating agents with some agreed definition of happiness or well-being. It follows the idea of fairness from the previous section. A system which is fair to all the constituting members can be said to ensure the welfare of all the participants, and further, the welfare of the entire system. We adopt the terminology of welfare in the resource allocation problem. Given an allocation of goods among agents, we believe we have achieved welfare if we have a fair allocation for each agent.
+Welfare is a concept of an economic system which measures happiness and well-being of all the participating agents with some agreed definition of happiness or well-being. It follows the idea of fairness from the previous section. A system which is fair to all the constituting members can be said to ensure the welfare of all the participants, and further, the welfare of the entire system. We adopt the terminology of welfare in the resource allocation problem. Given an allocation of goods among agents, we believe we have achieved welfare if we have a fair allocation for each agent.
 
 Like fairness, the notion of welfare differs with the definition of the resource allocation problem. Following the example from the previous section, for the simple cake division problem, equal division of cake among all agents would achieve the welfare in cake distribution. In the extended version of the cake division problem, if each agent receives a fair amount of cake based on the fairness criterion of age, the division will ensure welfare of the system.
 
 Three popular notions of welfare are often discussed in economics: utilitarian, egalitarian and Nash.
 
-An utilitarian welfare strives to achieve maximum overall utility. In resource allocation problem, a good will be allocated to that agent who has the maximum value for it. This ensures the maximum possible usage of the goods. Here, the idea of fairness is specified as maximum utilization of the goods. In that sense, it provides the most efficient allocation. Utilitarian distribution does not ensure that each agent needs to receive some good. An agent who does not have the best value for any good, may not get any good. Also, it is possible that one may have best value for all of the goods and may end up receiving all the goods. In other words, utilitarian welfare, in trying to achieve the highest possible utility, does not ensure positive utility for all the participants.
+An utilitarian welfare strives to achieve maximum overall utility. In resource allocation problem, a good will be allocated to that agent who has the maximum value for it. This ensures the maximum possible usage of the goods. Here, the idea of fairness is specified as maximum utilization of the goods. In that sense, it provides the most efficient allocation. Utilitarian distribution does not ensure that each agent receive some good. An agent who does not have the best value for any good, may not get any good. Also, it is possible that one may have best value for all of the goods and may end up receiving all the goods. In other words, utilitarian welfare, in trying to achieve the highest possible utility, does not ensure positive utility for all the participants.
 
 An egalitarian welfare tries to maximize well-being or happiness of all agents. It strives to achieve equality of some type among all agents. In resource allocation problem, an egalitarian welfare system would not regard the utilities that agents have for various goods. A good should be allocated to an agent who owns the least amount. With a notion of equality defined, an egalitarian welfare provides the most fair allocation.
 
@@ -207,23 +214,23 @@ $$
 \end{definition}
 
 
-Maximum Nash welfare is widely known for its welfare guarantees. MNW is found to satisfy interesting properties in a fair allocation problem. MNW is efficient with satisfaction of the Pareto optimality, and it has an attractive fairness property in the form of envy-freeness.
+Maximum Nash welfare is widely known for its welfare guarantees. MNW is found to satisfy interesting properties in a fair allocation problem. MNW is efficient, satisfying Pareto optimality, and it has an attractive fairness property in the form of envy-freeness.
 
-Pareto optimal (PO) allocation is the one in which it is not possible to make allocations of one agent better without making another agent's allocation worse. Pareto efficiency specifies the impossibility of improvement for one agent without affecting other agents negatively. PO is used as a property of efficient allocations because an allocation will not be Pareto if one can find an alternate allocation which improves the welfare for at least one agent without hurting the welfare of any other agent. With existence of no such improvement, PO represents the best possible scenario under such efficiency preference criteria.
+Pareto optimal (PO) allocation is the one in which it is not possible to make allocations of one agent better without making another agent's allocation worse. PO is used as a property of efficient allocations because an allocation will not be Pareto if one can find an alternate allocation which improves the welfare for at least one agent without hurting the welfare of any other agent. With existence of no such improvement, PO represents the best possible scenario under such efficiency preference criteria.
 
 \begin{definition}{Pareto optimality (PO).}
 An allocation $\mathcal{A}$ is Pareto optimal if no other allocation $\mathcal{A'}$ is feasible such that $V_i(\mathcal{A}_i') \geq V_i(\mathcal{A}_i)$ for all agents $i \in \mathcal{N}$ with $ V_j(\mathcal{A}_j') > V_j(\mathcal{A}_j)$ for some agent $j \neq i$ where, $V_i$ is the value function for any agent $i \in \mathcal{N}$.
 \end{definition}
 
 \begin{theorem}
-Every MNW allocation is Pareto optimal (PO) over indivisible goods.
+Every MNW allocation of indivisible goods is Pareto optimal (PO).
 \end{theorem}
 
 \begin{proof}
 We follow a simple proof of Pareto optimality for MNW by \citet{caragiannis2016unreasonable}. It is trivial for every MNW allocation $\mathcal{A}$ to be PO because any alternate allocation $\mathcal{A}'$ that increases the utility of one agent without decreasing the utility of any other agent would result in increase in the Nash welfare of the alternate allocation $\mathcal{A}'$, that is $NW(\mathcal{A}') > NW(\mathcal{A})$, contradicting the assumption that the original MNW allocation $\mathcal{A}$ had the maximum/optimal NW of all the possible allocations. 
 \end{proof}
 
-Maximum Nash welfare allocation satisfy the elusive fairness property of envy-freeness (EF) defined in the previous section. This is further studied and proved in the next section.
+Maximum Nash welfare allocations also satisfy the elusive fairness property of envy-freeness (EF) defined in the previous section. This is further studied and proved in the next section.
 
 With PO and EF, the maximum Nash welfare, in a great degree of simplicity, is one of the rare algorithms providing us with both efficiency and fairness standards. It is a good balance between the utilitarian vs. egalitarian trade-off. Also, attempting to maximize for utilitarian or egalitarian welfare conditions results in non-EF allocations \cite{caragiannis2016unreasonable}. In that sense, MNW allocation prevails over utilitarian and egalitarian allocation criteria for the strong PO and EF guarantees that it ensures.
 
@@ -233,12 +240,15 @@ With PO and EF, the maximum Nash welfare, in a great degree of simplicity, is on
 \label{section_experiments}
 In this section, we describe the data, computations, and analysis of the features of the data.
 
-We simulate the problem with $n = 2$ agents competing for allocation of $m$ goods where $m \in \{10, 8, 6, 4\}$. The goods are unrelated, and independent. Each agent has some utility for each of the goods. We generate $m$ additive utilities for each agent at random over $[0, 100)$ representing agent's value for $m$ goods. We further generate $m/2$ complementary utilities for each agent at random over $[0, 100)$ representing agent's valuation for pairs of goods. Each complementary utility represents the collective value an agent would get if both the goods are allocated to the agent. We generate 100 samples each with random seed [10, 20) for reproducibility. Overall, we have $1000$ such examples for each value of $m \in {10, 8, 6, 4}$. In addition to that, we map these examples on to four types of goods showing : i) Additive utilities ii) Complementing utilities iii) Substituting utilities type 1 iv) Substituting utilities type 2.  MNW is computed for each of these sample with respect to four types of utilities with algorithm 1.
+We simulate the problem with $n = 2$ agents competing for allocation of $m$ goods where $m \in \{10, 8, 6, 4\}$. Each agent has some value for each of the goods. We generate $m$ random independent and identically distributed (IID) numbers over $[0, 100)$ to represent additive utilities of an agent for $m$ goods. We further generate $m/2$ random IID numbers over $[0, 100)$ representing agent's valuation for pairs of complementary goods. Each complementary utility represents the collective value an agent would get if both the goods are allocated to the agent. We generate 1000 such samples for each $m \in \{10, 8, 6, 4\}$ and store it for reproducibility.
+
+We further compute substituting utilities of type 1 and type 2 as defined in algorithm \ref{algorithm2}. To sum up, we have four types of utility valuation, namely i) Additive ii) Complementary iii) Substituting type 1 iv) Substituting type 2.  MNW is computed for each of these sample with respect to four types of utilities with algorithm \ref{algorithm1}.
 
 \BlankLine
 
 % Maximum Nash Welfare computation - value function abstracted
 \begin{algorithm}
+\label{algorithm1}
 \caption{ Computing an MNW allocation }
 \SetAlgoLined
 \KwIn{ Agents $\mathcal{N}$, resources $\mathcal{M}$, value function $value\_f$, additive utilities $AU$, complementary/substituting utilities $CSU$ }
@@ -257,6 +267,7 @@ We simulate the problem with $n = 2$ agents competing for allocation of $m$ good
 % Nash Welfare/Product computation
 % For additive, complementing, substituting (type 1 and 2) utilities
 \begin{algorithm}
+\label{algorithm2}
 \caption{ Computing NW }
 \SetAlgoLined
 
@@ -343,7 +354,7 @@ $ NW_{subst2} = (\mathcal{A}, AU) \rightarrow \mathcal{A} \cdot (AU - PA(\mathca
     \caption{}
   \end{subfigure}
   \caption{Percent EFk}
-  \label{fig:efk}
+  \label{fig_efk_perc}
   \small
     (a), (b), and (c) represent percent MNW allocations satisfying EF0, EF1, and EF2, respectively for additive utilities. (d), (e), (f), (g), (h), (i), (j), (k), and (l) represent that for complementing, substituting type-1, substituting type-2 utilities, respectively.
 \end{figure}
@@ -407,7 +418,7 @@ Figure 4 shows the percent of samples which satisfies the envy-freeness specific
     \caption{}
   \end{subfigure}
   \caption{Mean envy}
-  \label{fig:efk}
+  \label{fig_efk_mean}
   \small
     (a), (b), and (c) represent mean envy present in MNW allocations after dropping 0, 1, and 2 goods, respectively for additive utilities. (d), (e), (f), (g), (h), (i), (j), (k), and (l) represent that for complementing, substituting type-1, substituting type-2 utilities, respectively.
 \end{figure}
@@ -467,7 +478,7 @@ Figure 4 shows the percent of samples which satisfies the envy-freeness specific
     \caption{}
   \end{subfigure}
   \caption{Mean positive envy}
-  \label{fig:efk}
+  \label{fig_efk_meanp}
   \small
     (a), (b), and (c) represent mean positive envy (non-envy) present in MNW allocations after dropping 0, 1, and 2 goods, respectively for additive utilities. (d), (e), (f), (g), (h), (i), (j), (k), and (l) represent that for complementing, substituting type-1, substituting type-2 utilities, respectively.
 \end{figure}
@@ -527,7 +538,7 @@ Figure 4 shows the percent of samples which satisfies the envy-freeness specific
     \caption{}
   \end{subfigure}
   \caption{Mean Negative envy}
-  \label{fig:efk}
+  \label{fig_efk_meann}
   \small
     (a), (b), and (c) represent mean negative envy (envy) present in MNW allocations after dropping 0, 1, and 2 goods, respectively for additive utilities. (d), (e), (f), (g), (h), (i), (j), (k), and (l) represent that for complementing, substituting type-1, substituting type-2 utilities, respectively.
 \end{figure}
@@ -539,104 +550,104 @@ Figure 7 plots the mean negative envy in the allocations after dropping 0, 1, an
 
 
 % % DFs additive
-% \begin{figure}[h!]
-%   \centering
-%   \begin{subfigure}[b]{0.47\linewidth}
-%     \includegraphics[width=\linewidth]{images/add/pdf_additive_10.png}
-%     \caption{}
-%   \end{subfigure}
-%   \begin{subfigure}[b]{0.47\linewidth}
-%     \includegraphics[width=\linewidth]{images/add/pdf_additive_8.png}
-%     \caption{}
-%   \end{subfigure}
-%   \begin{subfigure}[b]{0.47\linewidth}
-%     \includegraphics[width=\linewidth]{images/add/pdf_additive_6.png}
-%     \caption{}
-%   \end{subfigure}
-%   \begin{subfigure}[b]{0.47\linewidth}
-%     \includegraphics[width=\linewidth]{images/add/pdf_additive_4.png}
-%     \caption{}
-%   \end{subfigure}
-%   \caption{Envy distribution curve for Additive Utilities}
-%   \label{fig:efk}
-%   \small
-%     Envy distribution of the entire sample space with additive utilities after dropping 0, 1, and 2 goods for number of goods (a) $m = 10$, (b) $m = 8$, (c) $m = 6$, (d) $m = 4$
-% \end{figure}
+\begin{figure}[h!]
+  \centering
+  \begin{subfigure}[b]{0.47\linewidth}
+    \includegraphics[width=\linewidth]{images/add/pdf_additive_10.png}
+    \caption{}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.47\linewidth}
+    \includegraphics[width=\linewidth]{images/add/pdf_additive_8.png}
+    \caption{}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.47\linewidth}
+    \includegraphics[width=\linewidth]{images/add/pdf_additive_6.png}
+    \caption{}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.47\linewidth}
+    \includegraphics[width=\linewidth]{images/add/pdf_additive_4.png}
+    \caption{}
+  \end{subfigure}
+  \caption{Envy distribution curve for Additive Utilities}
+  \label{fig_efk_dist_curve_add}
+  \small
+    Envy distribution of the entire sample space with additive utilities after dropping 0, 1, and 2 goods for number of goods (a) $m = 10$, (b) $m = 8$, (c) $m = 6$, (d) $m = 4$
+\end{figure}
 
-% % DFs complementing
-% \begin{figure}[h!]
-%   \centering
-%   \begin{subfigure}[b]{0.47\linewidth}
-%     \includegraphics[width=\linewidth]{images/compl/pdf_complementing_10.png}
-%     \caption{}
-%   \end{subfigure}
-%   \begin{subfigure}[b]{0.47\linewidth}
-%     \includegraphics[width=\linewidth]{images/compl/pdf_complementing_8.png}
-%     \caption{}
-%   \end{subfigure}
-%   \begin{subfigure}[b]{0.47\linewidth}
-%     \includegraphics[width=\linewidth]{images/compl/pdf_complementing_6.png}
-%     \caption{}
-%   \end{subfigure}
-%   \begin{subfigure}[b]{0.47\linewidth}
-%     \includegraphics[width=\linewidth]{images/compl/pdf_complementing_4.png}
-%     \caption{}
-%   \end{subfigure}
-%   \caption{Envy distribution curve for Complementing Utilities}
-%   \label{fig:efk}
-%   \small
-%     Envy distribution of the entire sample space with complementing utilities after dropping 0, 1, and 2 goods for number of goods (a) $m = 10$, (b) $m = 8$, (c) $m = 6$, (d) $m = 4$
-% \end{figure}
+% DFs complementing
+\begin{figure}[h!]
+  \centering
+  \begin{subfigure}[b]{0.47\linewidth}
+    \includegraphics[width=\linewidth]{images/compl/pdf_complementing_10.png}
+    \caption{}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.47\linewidth}
+    \includegraphics[width=\linewidth]{images/compl/pdf_complementing_8.png}
+    \caption{}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.47\linewidth}
+    \includegraphics[width=\linewidth]{images/compl/pdf_complementing_6.png}
+    \caption{}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.47\linewidth}
+    \includegraphics[width=\linewidth]{images/compl/pdf_complementing_4.png}
+    \caption{}
+  \end{subfigure}
+  \caption{Envy distribution curve for Complementing Utilities}
+  \label{fig_efk_dist_curve_compl}
+  \small
+    Envy distribution of the entire sample space with complementing utilities after dropping 0, 1, and 2 goods for number of goods (a) $m = 10$, (b) $m = 8$, (c) $m = 6$, (d) $m = 4$
+\end{figure}
 
-% % DFs substituting type-1
-% \begin{figure}[h!]
-%   \centering
-%   \begin{subfigure}[b]{0.47\linewidth}
-%     \includegraphics[width=\linewidth]{images/subst1/pdf_subst1_10.png}
-%     \caption{}
-%   \end{subfigure}
-%   \begin{subfigure}[b]{0.47\linewidth}
-%     \includegraphics[width=\linewidth]{images/subst1/pdf_subst1_8.png}
-%     \caption{}
-%   \end{subfigure}
-%   \begin{subfigure}[b]{0.47\linewidth}
-%     \includegraphics[width=\linewidth]{images/subst1/pdf_subst1_6.png}
-%     \caption{}
-%   \end{subfigure}
-%   \begin{subfigure}[b]{0.47\linewidth}
-%     \includegraphics[width=\linewidth]{images/subst1/pdf_subst1_4.png}
-%     \caption{}
-%   \end{subfigure}
-%   \caption{Envy distribution curve for Substituting type 1 Utilities}
-%   \label{fig:efk}
-%   \small
-%     Envy distribution of the entire sample space with substituting utilities type 1 after dropping 0, 1, and 2 goods for number of goods (a) $m = 10$, (b) $m = 8$, (c) $m = 6$, (d) $m = 4$
-% \end{figure}
+% DFs substituting type-1
+\begin{figure}[h!]
+  \centering
+  \begin{subfigure}[b]{0.47\linewidth}
+    \includegraphics[width=\linewidth]{images/subst1/pdf_subst1_10.png}
+    \caption{}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.47\linewidth}
+    \includegraphics[width=\linewidth]{images/subst1/pdf_subst1_8.png}
+    \caption{}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.47\linewidth}
+    \includegraphics[width=\linewidth]{images/subst1/pdf_subst1_6.png}
+    \caption{}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.47\linewidth}
+    \includegraphics[width=\linewidth]{images/subst1/pdf_subst1_4.png}
+    \caption{}
+  \end{subfigure}
+  \caption{Envy distribution curve for Substituting type 1 Utilities}
+  \label{fig_efk_dist_curve_subst1}
+  \small
+    Envy distribution of the entire sample space with substituting utilities type 1 after dropping 0, 1, and 2 goods for number of goods (a) $m = 10$, (b) $m = 8$, (c) $m = 6$, (d) $m = 4$
+\end{figure}
 
-% % DFs substituting type-2
-% \begin{figure}[h!]
-%   \centering
-%   \begin{subfigure}[b]{0.47\linewidth}
-%     \includegraphics[width=\linewidth]{images/subst2/pdf_subst2_10.png}
-%     \caption{}
-%   \end{subfigure}
-%   \begin{subfigure}[b]{0.47\linewidth}
-%     \includegraphics[width=\linewidth]{images/subst2/pdf_subst2_8.png}
-%     \caption{}
-%   \end{subfigure}
-%   \begin{subfigure}[b]{0.47\linewidth}
-%     \includegraphics[width=\linewidth]{images/subst2/pdf_subst2_6.png}
-%     \caption{}
-%   \end{subfigure}
-%   \begin{subfigure}[b]{0.47\linewidth}
-%     \includegraphics[width=\linewidth]{images/subst2/pdf_subst2_4.png}
-%     \caption{}
-%   \end{subfigure}
-%   \caption{Envy distribution curve for Substituting type 2 Utilities}
-%   \label{fig:efk}
-%   \small
-%     Envy distribution of the entire sample space with substituting utilities type 2 after dropping 0, 1, and 2 goods for number of goods (a) $m = 10$, (b) $m = 8$, (c) $m = 6$, (d) $m = 4$
-% \end{figure}
+% DFs substituting type-2
+\begin{figure}[h!]
+  \centering
+  \begin{subfigure}[b]{0.47\linewidth}
+    \includegraphics[width=\linewidth]{images/subst2/pdf_subst2_10.png}
+    \caption{}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.47\linewidth}
+    \includegraphics[width=\linewidth]{images/subst2/pdf_subst2_8.png}
+    \caption{}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.47\linewidth}
+    \includegraphics[width=\linewidth]{images/subst2/pdf_subst2_6.png}
+    \caption{}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.47\linewidth}
+    \includegraphics[width=\linewidth]{images/subst2/pdf_subst2_4.png}
+    \caption{}
+  \end{subfigure}
+  \caption{Envy distribution curve for Substituting type 2 Utilities}
+  \label{fig_efk_dist_curve_subst2}
+  \small
+    Envy distribution of the entire sample space with substituting utilities type 2 after dropping 0, 1, and 2 goods for number of goods (a) $m = 10$, (b) $m = 8$, (c) $m = 6$, (d) $m = 4$
+\end{figure}
 
 
 Figure 8-11 plot the distributions of envy for simulated 1000 samples. As discussed about other plots, the decrease in number of goods can directly be seen in increase in number of envied allocations. These curves give a nice shape to the envy calculations before and after dropping goods for EF0, EF1, and EF2 calculations. Figure 8-11 show both, final envy after dropping the good and that sorted on the sampling x-axis which forms a smooth shape with rest of the distribution curve.
@@ -688,6 +699,7 @@ Let $\mathcal{A}'$ denote the allocation obtained from moving $G^*$ from agent $
 $$
     NW(\mathcal{A}') > NW(\mathcal{A})
 $$
+is equivalent to
 $$
     \frac{NW(\mathcal{A}')}{NW(\mathcal{A})} > 1
 $$
@@ -695,7 +707,7 @@ The ratio is valid, as we define $NW(\mathcal{A}) > 0$ always valid in definitio
 
 For all other agents $p$ not a part of the exchange, the value of allocation $\mathcal{A}_p$ does not change. That is, $\forall p \in \mathcal{N}\backslash\{i,j\}, V_p(\mathcal{A}'_p) = V_p(\mathcal{A}_p)$
 
-Since MNW is Pareto optimal (PO) and goods are additively bonded, we can write,
+Since MNW is Pareto optimal (PO) and goods are additively bonded for some $G^*, |G| \leq k$, we can write,
 $$
     V_i(\mathcal{A}'_i) = V_i(\mathcal{A}_i) + V_i(G^*)
 $$
@@ -709,8 +721,9 @@ So, backing up to the ratio of Nash welfare of the original and the modified all
 \begin{equation}
 \label{eq_prooffinal}
 \begin{gathered}
-    \frac{NW(\mathcal{A}')}{NW(\mathcal{A})} > 1 \Leftrightarrow \left[\frac{V_i(\mathcal{A}_i) + V_i(G^*)}{V_j(\mathcal{A}_j) - V_j(G^*)}\right] \\
-    \Leftrightarrow \left[1 - \frac{V_j(G^*)}{V_j(\mathcal{A}_j)}\right] \cdot \left[1 + \frac{V_i(G^*)}{V_i(\mathcal{A}_i)}\right] \\
+    \frac{NW(\mathcal{A}')}{NW(\mathcal{A})} > 1 \Leftrightarrow \left[ \frac{V_i(\mathcal{A}_i) + V_i(G^*)}{V_i(\mathcal{A}_i)} \right] \left[ \frac{V_j(\mathcal{A}_j) - V_j(G^*)}{V_j(\mathcal{A}_j)} \right] > 1 \\
+    \Leftrightarrow \left[1 - \frac{V_j(G^*)}{V_j(\mathcal{A}_j)}\right] \cdot \left[1 + \frac{V_i(G^*)}{V_i(\mathcal{A}_i)}\right] > 1 \\
+    \Leftrightarrow 1 + \frac{V_i(G^*)}{V_i(\mathcal{A}_i)} - \frac{V_j(G^*)}{V_j(\mathcal{A})_j} - \frac{V_j(G^*) V_i(G^*)}{V_j(\mathcal{A}_j) V_i(\mathcal{A}_i)} > 1 \\
     \Leftrightarrow \frac{V_j(G^*)}{V_i(G^*)} \cdot \left[V_i(\mathcal{A}_i) + V_i(G^*) \right] < V_j(\mathcal{A}_j)
 \end{gathered}
 \end{equation}
