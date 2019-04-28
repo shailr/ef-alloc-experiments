@@ -19,11 +19,11 @@ The efficiency and fairness criteria are well studied for various types of goods
 
 Introduction of indivisibility in goods takes away the envy-free property of the CEEI. More generally, envy-free solution does not exist for indivisible goods. Consider a simple resource allocation problem with one good and two agents. Since the good is indivisible, only one agent may get the object. The other agent will always envy for not getting the good. \citet{budish2011combinatorial} defines an approximation of the envy-freeness property for approximate-CEEI with indivisible goods. \citet{budish2011combinatorial} defines envy-freeness up to one good (EF1) as an approximation for envy-freeness and proves CEEI to be EF1 for additive utilities.
 
-A welfare criteria we analyze in this paper is Nash social welfare. Nash social welfare is the product of values of allocations for each agent. An allocation which maximizes the Nash social welfare has interesting efficiency and fairness properties. The maximum Nash welfare (MNW) solution is envy-free for divisible goods. \citet{caragiannis2016unreasonable} shows MNW to provide efficient and fair solution even for divisible goods. An MNW solution for indivisible goods with additive utilities is guaranteed to be EF1 \cite{caragiannis2016unreasonable} with the same definition of EF1 defined by \citet{budish2011combinatorial}. Along with that, MNW solution is Pareto-optimal, hence uniquely demonstrating the elusive combination of both efficiency and fairness.
+A welfare criteria we analyze in this paper is Nash social welfare. Nash social welfare is the product of values of allocations for each agent. An allocation which maximizes the Nash social welfare has interesting efficiency and fairness properties. The allocation problem solved by maximum Nash welfare (MNW) is envy-free for divisible goods. \citet{caragiannis2016unreasonable} shows MNW to provide efficient and fair solution even for indivisible goods. An MNW solution for indivisible goods with additive utilities is guaranteed to be EF1 \cite{caragiannis2016unreasonable} with the same definition of EF1 defined by \citet{budish2011combinatorial}. Along with that, MNW solution is Pareto-optimal, hence uniquely demonstrating the elusive combination of both efficiency and fairness.
 
 The MNW solution clearly seems to cater to both of the divisibility based classes of goods. But it assumes the additive nature of values that the agents have for various goods. This assumption hardly holds for the real world which is full of examples showing non-additive utilities of various forms. The EF1 fairness of MNW solution does not hold for non-additive goods. 
 
-In this paper, we consider two such forms of non-additive goods: complementary goods and substitute goods. Complementary goods are the type of goods which show equivalent demand in market. If price for A increases, it's demand will decrease, decreasing the demand of another good B which is a complement of A. Substitute goods show an inverse behaviour. If price for A increases, its demand will decrease; while the demand for B which is A's substitute will increase. Both of these are well analyzed in economics and are used in the form of market strategies for increasing the overall utility and profit from a set of goods \cite{lewbel1985bundling, kojima1975international, bulow1985multimarket}. We relax the definition of envy-freeness up to one good (EF1) \cite{budish2011combinatorial} to introduce envy-freeness up to k goods (EFk). We analyze the efficiency and fairness of maximum Nash Welfare (MNW) for such goods and prove that MNW for such goods is bounded by EFk fairness criteria.
+In this paper, we consider two such forms of non-additive goods: complement and substitute goods. Complementary goods are the type of goods which show equivalent demand in market. If price for A increases, it's demand will decrease, decreasing the demand of another good B which is a complement of A. Substitute goods show an inverse behaviour. If price for A increases, its demand will decrease; while the demand for B which is A's substitute will increase. Both of these are well analyzed in economics and are used in the form of market strategies for increasing the overall utility and profit from a set of goods \cite{lewbel1985bundling, kojima1975international, bulow1985multimarket}. We relax the definition of envy-freeness up to one good (EF1) \cite{budish2011combinatorial} to introduce envy-freeness up to k goods (EFk). We analyze the efficiency and fairness of maximum Nash Welfare (MNW) for such goods and prove that MNW for such goods is bounded by EFk fairness criteria.
 
 The rest of the paper is structured as follows. We study existing related research and topics in section \ref{section_related}. We introduce, define, and discuss terminologies and definitions in section \ref{section_prelim}. We analyze experimental results in section \ref{section_experiments}. Further, we analyze and formally prove EFk criteria for MNW allocation of complementary and substitute goods in section \ref{section_proof}. Finally, we conclude and discuss future directions in section \ref{section_conclusion}.
 
@@ -363,185 +363,185 @@ $ NW_{subst2} = (\mathcal{A}, AU) \rightarrow \mathcal{A} \cdot (AU - PA(\mathca
 Figure 4 shows the percent of samples which satisfies the envy-freeness specific criteria. Simple additive utilities gradually creates more envy with the decrease in number of goods as seen in Figure 4a. Figure 4a, 4b, and 4c collectively provides the experimental proof for envy-freeness up to one good (EF1) property of MNW allocations with additive valuations \cite{caragiannis2016unreasonable}. Figure 4f, 4i, and 4l, indicates pairwise complementary and substituting utilities follow envy-freeness up to 2 goods (EF2). Complementing and substituting utilities also showcase surprisingly high, if not perfect, EF1. In particular, substituting type-1 utilities for 4 goods and type-2 for 10, 8, and 4 goods have 100\% EF1.
 
 
-% Mean Envy
-\begin{figure}[h!]
-  \centering
-  \begin{subfigure}[b]{0.3\linewidth}
-    \includegraphics[width=\linewidth]{images/add/ef0_means.png}
-    \caption{}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.3\linewidth}
-    \includegraphics[width=\linewidth]{images/add/ef1_means.png}
-    \caption{}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.3\linewidth}
-    \includegraphics[width=\linewidth]{images/add/ef2_means.png}
-    \caption{}
-  \end{subfigure}
+% % Mean Envy
+% \begin{figure}[h!]
+%   \centering
+%   \begin{subfigure}[b]{0.3\linewidth}
+%     \includegraphics[width=\linewidth]{images/add/ef0_means.png}
+%     \caption{}
+%   \end{subfigure}
+%   \begin{subfigure}[b]{0.3\linewidth}
+%     \includegraphics[width=\linewidth]{images/add/ef1_means.png}
+%     \caption{}
+%   \end{subfigure}
+%   \begin{subfigure}[b]{0.3\linewidth}
+%     \includegraphics[width=\linewidth]{images/add/ef2_means.png}
+%     \caption{}
+%   \end{subfigure}
   
-  \begin{subfigure}[b]{0.3\linewidth}
-    \includegraphics[width=\linewidth]{images/compl/ef0_means.png}
-    \caption{}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.3\linewidth}
-    \includegraphics[width=\linewidth]{images/compl/ef1_means.png}
-    \caption{}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.3\linewidth}
-    \includegraphics[width=\linewidth]{images/compl/ef2_means.png}
-    \caption{}
-  \end{subfigure}
+%   \begin{subfigure}[b]{0.3\linewidth}
+%     \includegraphics[width=\linewidth]{images/compl/ef0_means.png}
+%     \caption{}
+%   \end{subfigure}
+%   \begin{subfigure}[b]{0.3\linewidth}
+%     \includegraphics[width=\linewidth]{images/compl/ef1_means.png}
+%     \caption{}
+%   \end{subfigure}
+%   \begin{subfigure}[b]{0.3\linewidth}
+%     \includegraphics[width=\linewidth]{images/compl/ef2_means.png}
+%     \caption{}
+%   \end{subfigure}
     
-  \begin{subfigure}[b]{0.3\linewidth}
-    \includegraphics[width=\linewidth]{images/subst1/ef0_means.png}
-    \caption{}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.3\linewidth}
-    \includegraphics[width=\linewidth]{images/subst1/ef1_means.png}
-    \caption{}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.3\linewidth}
-    \includegraphics[width=\linewidth]{images/subst1/ef2_means.png}
-    \caption{}
-  \end{subfigure}
+%   \begin{subfigure}[b]{0.3\linewidth}
+%     \includegraphics[width=\linewidth]{images/subst1/ef0_means.png}
+%     \caption{}
+%   \end{subfigure}
+%   \begin{subfigure}[b]{0.3\linewidth}
+%     \includegraphics[width=\linewidth]{images/subst1/ef1_means.png}
+%     \caption{}
+%   \end{subfigure}
+%   \begin{subfigure}[b]{0.3\linewidth}
+%     \includegraphics[width=\linewidth]{images/subst1/ef2_means.png}
+%     \caption{}
+%   \end{subfigure}
     
-  \begin{subfigure}[b]{0.3\linewidth}
-    \includegraphics[width=\linewidth]{images/subst2/ef0_means.png}
-    \caption{}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.3\linewidth}
-    \includegraphics[width=\linewidth]{images/subst2/ef1_means.png}
-    \caption{}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.3\linewidth}
-    \includegraphics[width=\linewidth]{images/subst2/ef2_means.png}
-    \caption{}
-  \end{subfigure}
-  \caption{Mean envy}
-  \label{fig_efk_mean}
-  \small
-    (a), (b), and (c) represent mean envy present in MNW allocations after dropping 0, 1, and 2 goods, respectively for additive utilities. (d), (e), (f), (g), (h), (i), (j), (k), and (l) represent that for complementing, substituting type-1, substituting type-2 utilities, respectively.
-\end{figure}
+%   \begin{subfigure}[b]{0.3\linewidth}
+%     \includegraphics[width=\linewidth]{images/subst2/ef0_means.png}
+%     \caption{}
+%   \end{subfigure}
+%   \begin{subfigure}[b]{0.3\linewidth}
+%     \includegraphics[width=\linewidth]{images/subst2/ef1_means.png}
+%     \caption{}
+%   \end{subfigure}
+%   \begin{subfigure}[b]{0.3\linewidth}
+%     \includegraphics[width=\linewidth]{images/subst2/ef2_means.png}
+%     \caption{}
+%   \end{subfigure}
+%   \caption{Mean envy}
+%   \label{fig_efk_mean}
+%   \small
+%     (a), (b), and (c) represent mean envy present in MNW allocations after dropping 0, 1, and 2 goods, respectively for additive utilities. (d), (e), (f), (g), (h), (i), (j), (k), and (l) represent that for complementing, substituting type-1, substituting type-2 utilities, respectively.
+% \end{figure}
 
-% Mean Positive Envy
-\begin{figure}[h!]
-  \centering
-  \begin{subfigure}[b]{0.3\linewidth}
-    \includegraphics[width=\linewidth]{images/add/ef0_means_pos.png}
-    \caption{}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.3\linewidth}
-    \includegraphics[width=\linewidth]{images/add/ef1_means_pos.png}
-    \caption{}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.3\linewidth}
-    \includegraphics[width=\linewidth]{images/add/ef2_means_pos.png}
-    \caption{}
-  \end{subfigure}
+% % Mean Positive Envy
+% \begin{figure}[h!]
+%   \centering
+%   \begin{subfigure}[b]{0.3\linewidth}
+%     \includegraphics[width=\linewidth]{images/add/ef0_means_pos.png}
+%     \caption{}
+%   \end{subfigure}
+%   \begin{subfigure}[b]{0.3\linewidth}
+%     \includegraphics[width=\linewidth]{images/add/ef1_means_pos.png}
+%     \caption{}
+%   \end{subfigure}
+%   \begin{subfigure}[b]{0.3\linewidth}
+%     \includegraphics[width=\linewidth]{images/add/ef2_means_pos.png}
+%     \caption{}
+%   \end{subfigure}
   
-  \begin{subfigure}[b]{0.3\linewidth}
-    \includegraphics[width=\linewidth]{images/compl/ef0_means_pos.png}
-    \caption{}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.3\linewidth}
-    \includegraphics[width=\linewidth]{images/compl/ef1_means_pos.png}
-    \caption{}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.3\linewidth}
-    \includegraphics[width=\linewidth]{images/compl/ef2_means_pos.png}
-    \caption{}
-  \end{subfigure}
+%   \begin{subfigure}[b]{0.3\linewidth}
+%     \includegraphics[width=\linewidth]{images/compl/ef0_means_pos.png}
+%     \caption{}
+%   \end{subfigure}
+%   \begin{subfigure}[b]{0.3\linewidth}
+%     \includegraphics[width=\linewidth]{images/compl/ef1_means_pos.png}
+%     \caption{}
+%   \end{subfigure}
+%   \begin{subfigure}[b]{0.3\linewidth}
+%     \includegraphics[width=\linewidth]{images/compl/ef2_means_pos.png}
+%     \caption{}
+%   \end{subfigure}
     
-  \begin{subfigure}[b]{0.3\linewidth}
-    \includegraphics[width=\linewidth]{images/subst1/ef0_means_pos.png}
-    \caption{}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.3\linewidth}
-    \includegraphics[width=\linewidth]{images/subst1/ef1_means_pos.png}
-    \caption{}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.3\linewidth}
-    \includegraphics[width=\linewidth]{images/subst1/ef2_means_pos.png}
-    \caption{}
-  \end{subfigure}
+%   \begin{subfigure}[b]{0.3\linewidth}
+%     \includegraphics[width=\linewidth]{images/subst1/ef0_means_pos.png}
+%     \caption{}
+%   \end{subfigure}
+%   \begin{subfigure}[b]{0.3\linewidth}
+%     \includegraphics[width=\linewidth]{images/subst1/ef1_means_pos.png}
+%     \caption{}
+%   \end{subfigure}
+%   \begin{subfigure}[b]{0.3\linewidth}
+%     \includegraphics[width=\linewidth]{images/subst1/ef2_means_pos.png}
+%     \caption{}
+%   \end{subfigure}
     
-  \begin{subfigure}[b]{0.3\linewidth}
-    \includegraphics[width=\linewidth]{images/subst2/ef0_means_pos.png}
-    \caption{}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.3\linewidth}
-    \includegraphics[width=\linewidth]{images/subst2/ef1_means_pos.png}
-    \caption{}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.3\linewidth}
-    \includegraphics[width=\linewidth]{images/subst2/ef2_means_pos.png}
-    \caption{}
-  \end{subfigure}
-  \caption{Mean positive envy}
-  \label{fig_efk_meanp}
-  \small
-    (a), (b), and (c) represent mean positive envy (non-envy) present in MNW allocations after dropping 0, 1, and 2 goods, respectively for additive utilities. (d), (e), (f), (g), (h), (i), (j), (k), and (l) represent that for complementing, substituting type-1, substituting type-2 utilities, respectively.
-\end{figure}
+%   \begin{subfigure}[b]{0.3\linewidth}
+%     \includegraphics[width=\linewidth]{images/subst2/ef0_means_pos.png}
+%     \caption{}
+%   \end{subfigure}
+%   \begin{subfigure}[b]{0.3\linewidth}
+%     \includegraphics[width=\linewidth]{images/subst2/ef1_means_pos.png}
+%     \caption{}
+%   \end{subfigure}
+%   \begin{subfigure}[b]{0.3\linewidth}
+%     \includegraphics[width=\linewidth]{images/subst2/ef2_means_pos.png}
+%     \caption{}
+%   \end{subfigure}
+%   \caption{Mean positive envy}
+%   \label{fig_efk_meanp}
+%   \small
+%     (a), (b), and (c) represent mean positive envy (non-envy) present in MNW allocations after dropping 0, 1, and 2 goods, respectively for additive utilities. (d), (e), (f), (g), (h), (i), (j), (k), and (l) represent that for complementing, substituting type-1, substituting type-2 utilities, respectively.
+% \end{figure}
 
-% Mean Negative Envy
-\begin{figure}[h!]
-  \centering
-  \begin{subfigure}[b]{0.3\linewidth}
-    \includegraphics[width=\linewidth]{images/add/ef0_means_neg.png}
-    \caption{}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.3\linewidth}
-    \includegraphics[width=\linewidth]{images/add/ef1_means_neg.png}
-    \caption{}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.3\linewidth}
-    \includegraphics[width=\linewidth]{images/add/ef2_means_neg.png}
-    \caption{}
-  \end{subfigure}
+% % Mean Negative Envy
+% \begin{figure}[h!]
+%   \centering
+%   \begin{subfigure}[b]{0.3\linewidth}
+%     \includegraphics[width=\linewidth]{images/add/ef0_means_neg.png}
+%     \caption{}
+%   \end{subfigure}
+%   \begin{subfigure}[b]{0.3\linewidth}
+%     \includegraphics[width=\linewidth]{images/add/ef1_means_neg.png}
+%     \caption{}
+%   \end{subfigure}
+%   \begin{subfigure}[b]{0.3\linewidth}
+%     \includegraphics[width=\linewidth]{images/add/ef2_means_neg.png}
+%     \caption{}
+%   \end{subfigure}
   
-  \begin{subfigure}[b]{0.3\linewidth}
-    \includegraphics[width=\linewidth]{images/compl/ef0_means_neg.png}
-    \caption{}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.3\linewidth}
-    \includegraphics[width=\linewidth]{images/compl/ef1_means_neg.png}
-    \caption{}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.3\linewidth}
-    \includegraphics[width=\linewidth]{images/compl/ef2_means_neg.png}
-    \caption{}
-  \end{subfigure}
+%   \begin{subfigure}[b]{0.3\linewidth}
+%     \includegraphics[width=\linewidth]{images/compl/ef0_means_neg.png}
+%     \caption{}
+%   \end{subfigure}
+%   \begin{subfigure}[b]{0.3\linewidth}
+%     \includegraphics[width=\linewidth]{images/compl/ef1_means_neg.png}
+%     \caption{}
+%   \end{subfigure}
+%   \begin{subfigure}[b]{0.3\linewidth}
+%     \includegraphics[width=\linewidth]{images/compl/ef2_means_neg.png}
+%     \caption{}
+%   \end{subfigure}
     
-  \begin{subfigure}[b]{0.3\linewidth}
-    \includegraphics[width=\linewidth]{images/subst1/ef0_means_neg.png}
-    \caption{}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.3\linewidth}
-    \includegraphics[width=\linewidth]{images/subst1/ef1_means_neg.png}
-    \caption{}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.3\linewidth}
-    \includegraphics[width=\linewidth]{images/subst1/ef2_means_neg.png}
-    \caption{}
-  \end{subfigure}
+%   \begin{subfigure}[b]{0.3\linewidth}
+%     \includegraphics[width=\linewidth]{images/subst1/ef0_means_neg.png}
+%     \caption{}
+%   \end{subfigure}
+%   \begin{subfigure}[b]{0.3\linewidth}
+%     \includegraphics[width=\linewidth]{images/subst1/ef1_means_neg.png}
+%     \caption{}
+%   \end{subfigure}
+%   \begin{subfigure}[b]{0.3\linewidth}
+%     \includegraphics[width=\linewidth]{images/subst1/ef2_means_neg.png}
+%     \caption{}
+%   \end{subfigure}
     
-  \begin{subfigure}[b]{0.3\linewidth}
-    \includegraphics[width=\linewidth]{images/subst2/ef0_means_neg.png}
-    \caption{}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.3\linewidth}
-    \includegraphics[width=\linewidth]{images/subst2/ef1_means_neg.png}
-    \caption{}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.3\linewidth}
-    \includegraphics[width=\linewidth]{images/subst2/ef2_means_neg.png}
-    \caption{}
-  \end{subfigure}
-  \caption{Mean Negative envy}
-  \label{fig_efk_meann}
-  \small
-    (a), (b), and (c) represent mean negative envy (envy) present in MNW allocations after dropping 0, 1, and 2 goods, respectively for additive utilities. (d), (e), (f), (g), (h), (i), (j), (k), and (l) represent that for complementing, substituting type-1, substituting type-2 utilities, respectively.
-\end{figure}
+%   \begin{subfigure}[b]{0.3\linewidth}
+%     \includegraphics[width=\linewidth]{images/subst2/ef0_means_neg.png}
+%     \caption{}
+%   \end{subfigure}
+%   \begin{subfigure}[b]{0.3\linewidth}
+%     \includegraphics[width=\linewidth]{images/subst2/ef1_means_neg.png}
+%     \caption{}
+%   \end{subfigure}
+%   \begin{subfigure}[b]{0.3\linewidth}
+%     \includegraphics[width=\linewidth]{images/subst2/ef2_means_neg.png}
+%     \caption{}
+%   \end{subfigure}
+%   \caption{Mean Negative envy}
+%   \label{fig_efk_meann}
+%   \small
+%     (a), (b), and (c) represent mean negative envy (envy) present in MNW allocations after dropping 0, 1, and 2 goods, respectively for additive utilities. (d), (e), (f), (g), (h), (i), (j), (k), and (l) represent that for complementing, substituting type-1, substituting type-2 utilities, respectively.
+% \end{figure}
 
 
 Figure 5 plots mean envy between the agents after dropping 0, 1, and 2 goods for all MNW allocations. Mean envy-freeness raises with drops of 0, 1 and 2 goods as expected. The difference is greater from EF0 to EF1 than from EF1 to EF2 which is almost the same. This indicates when agents drop the first good in EF1 calculation, though it is known to drop the one which is valued the most by others, the first drop has a very high utility. Also noticeable is the decrease in envy-freeness with decrease in the number of goods. It is visible regardless of the type of utility or the number of goods being dropped. Figure 6 shows the mean positive envy (non-envy) in the allocation which closely follows and reflects the figure 5 mean envy plot.
@@ -550,104 +550,104 @@ Figure 7 plots the mean negative envy in the allocations after dropping 0, 1, an
 
 
 % % DFs additive
-\begin{figure}[h!]
-  \centering
-  \begin{subfigure}[b]{0.47\linewidth}
-    \includegraphics[width=\linewidth]{images/add/pdf_additive_10.png}
-    \caption{}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.47\linewidth}
-    \includegraphics[width=\linewidth]{images/add/pdf_additive_8.png}
-    \caption{}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.47\linewidth}
-    \includegraphics[width=\linewidth]{images/add/pdf_additive_6.png}
-    \caption{}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.47\linewidth}
-    \includegraphics[width=\linewidth]{images/add/pdf_additive_4.png}
-    \caption{}
-  \end{subfigure}
-  \caption{Envy distribution curve for Additive Utilities}
-  \label{fig_efk_dist_curve_add}
-  \small
-    Envy distribution of the entire sample space with additive utilities after dropping 0, 1, and 2 goods for number of goods (a) $m = 10$, (b) $m = 8$, (c) $m = 6$, (d) $m = 4$
-\end{figure}
+% \begin{figure}[h!]
+%   \centering
+%   \begin{subfigure}[b]{0.47\linewidth}
+%     \includegraphics[width=\linewidth]{images/add/pdf_additive_10.png}
+%     \caption{}
+%   \end{subfigure}
+%   \begin{subfigure}[b]{0.47\linewidth}
+%     \includegraphics[width=\linewidth]{images/add/pdf_additive_8.png}
+%     \caption{}
+%   \end{subfigure}
+%   \begin{subfigure}[b]{0.47\linewidth}
+%     \includegraphics[width=\linewidth]{images/add/pdf_additive_6.png}
+%     \caption{}
+%   \end{subfigure}
+%   \begin{subfigure}[b]{0.47\linewidth}
+%     \includegraphics[width=\linewidth]{images/add/pdf_additive_4.png}
+%     \caption{}
+%   \end{subfigure}
+%   \caption{Envy distribution curve for Additive Utilities}
+%   \label{fig_efk_dist_curve_add}
+%   \small
+%     Envy distribution of the entire sample space with additive utilities after dropping 0, 1, and 2 goods for number of goods (a) $m = 10$, (b) $m = 8$, (c) $m = 6$, (d) $m = 4$
+% \end{figure}
 
-% DFs complementing
-\begin{figure}[h!]
-  \centering
-  \begin{subfigure}[b]{0.47\linewidth}
-    \includegraphics[width=\linewidth]{images/compl/pdf_complementing_10.png}
-    \caption{}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.47\linewidth}
-    \includegraphics[width=\linewidth]{images/compl/pdf_complementing_8.png}
-    \caption{}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.47\linewidth}
-    \includegraphics[width=\linewidth]{images/compl/pdf_complementing_6.png}
-    \caption{}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.47\linewidth}
-    \includegraphics[width=\linewidth]{images/compl/pdf_complementing_4.png}
-    \caption{}
-  \end{subfigure}
-  \caption{Envy distribution curve for Complementing Utilities}
-  \label{fig_efk_dist_curve_compl}
-  \small
-    Envy distribution of the entire sample space with complementing utilities after dropping 0, 1, and 2 goods for number of goods (a) $m = 10$, (b) $m = 8$, (c) $m = 6$, (d) $m = 4$
-\end{figure}
+% % DFs complementing
+% \begin{figure}[h!]
+%   \centering
+%   \begin{subfigure}[b]{0.47\linewidth}
+%     \includegraphics[width=\linewidth]{images/compl/pdf_complementing_10.png}
+%     \caption{}
+%   \end{subfigure}
+%   \begin{subfigure}[b]{0.47\linewidth}
+%     \includegraphics[width=\linewidth]{images/compl/pdf_complementing_8.png}
+%     \caption{}
+%   \end{subfigure}
+%   \begin{subfigure}[b]{0.47\linewidth}
+%     \includegraphics[width=\linewidth]{images/compl/pdf_complementing_6.png}
+%     \caption{}
+%   \end{subfigure}
+%   \begin{subfigure}[b]{0.47\linewidth}
+%     \includegraphics[width=\linewidth]{images/compl/pdf_complementing_4.png}
+%     \caption{}
+%   \end{subfigure}
+%   \caption{Envy distribution curve for Complementing Utilities}
+%   \label{fig_efk_dist_curve_compl}
+%   \small
+%     Envy distribution of the entire sample space with complementing utilities after dropping 0, 1, and 2 goods for number of goods (a) $m = 10$, (b) $m = 8$, (c) $m = 6$, (d) $m = 4$
+% \end{figure}
 
-% DFs substituting type-1
-\begin{figure}[h!]
-  \centering
-  \begin{subfigure}[b]{0.47\linewidth}
-    \includegraphics[width=\linewidth]{images/subst1/pdf_subst1_10.png}
-    \caption{}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.47\linewidth}
-    \includegraphics[width=\linewidth]{images/subst1/pdf_subst1_8.png}
-    \caption{}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.47\linewidth}
-    \includegraphics[width=\linewidth]{images/subst1/pdf_subst1_6.png}
-    \caption{}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.47\linewidth}
-    \includegraphics[width=\linewidth]{images/subst1/pdf_subst1_4.png}
-    \caption{}
-  \end{subfigure}
-  \caption{Envy distribution curve for Substituting type 1 Utilities}
-  \label{fig_efk_dist_curve_subst1}
-  \small
-    Envy distribution of the entire sample space with substituting utilities type 1 after dropping 0, 1, and 2 goods for number of goods (a) $m = 10$, (b) $m = 8$, (c) $m = 6$, (d) $m = 4$
-\end{figure}
+% % DFs substituting type-1
+% \begin{figure}[h!]
+%   \centering
+%   \begin{subfigure}[b]{0.47\linewidth}
+%     \includegraphics[width=\linewidth]{images/subst1/pdf_subst1_10.png}
+%     \caption{}
+%   \end{subfigure}
+%   \begin{subfigure}[b]{0.47\linewidth}
+%     \includegraphics[width=\linewidth]{images/subst1/pdf_subst1_8.png}
+%     \caption{}
+%   \end{subfigure}
+%   \begin{subfigure}[b]{0.47\linewidth}
+%     \includegraphics[width=\linewidth]{images/subst1/pdf_subst1_6.png}
+%     \caption{}
+%   \end{subfigure}
+%   \begin{subfigure}[b]{0.47\linewidth}
+%     \includegraphics[width=\linewidth]{images/subst1/pdf_subst1_4.png}
+%     \caption{}
+%   \end{subfigure}
+%   \caption{Envy distribution curve for Substituting type 1 Utilities}
+%   \label{fig_efk_dist_curve_subst1}
+%   \small
+%     Envy distribution of the entire sample space with substituting utilities type 1 after dropping 0, 1, and 2 goods for number of goods (a) $m = 10$, (b) $m = 8$, (c) $m = 6$, (d) $m = 4$
+% \end{figure}
 
-% DFs substituting type-2
-\begin{figure}[h!]
-  \centering
-  \begin{subfigure}[b]{0.47\linewidth}
-    \includegraphics[width=\linewidth]{images/subst2/pdf_subst2_10.png}
-    \caption{}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.47\linewidth}
-    \includegraphics[width=\linewidth]{images/subst2/pdf_subst2_8.png}
-    \caption{}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.47\linewidth}
-    \includegraphics[width=\linewidth]{images/subst2/pdf_subst2_6.png}
-    \caption{}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.47\linewidth}
-    \includegraphics[width=\linewidth]{images/subst2/pdf_subst2_4.png}
-    \caption{}
-  \end{subfigure}
-  \caption{Envy distribution curve for Substituting type 2 Utilities}
-  \label{fig_efk_dist_curve_subst2}
-  \small
-    Envy distribution of the entire sample space with substituting utilities type 2 after dropping 0, 1, and 2 goods for number of goods (a) $m = 10$, (b) $m = 8$, (c) $m = 6$, (d) $m = 4$
-\end{figure}
+% % DFs substituting type-2
+% \begin{figure}[h!]
+%   \centering
+%   \begin{subfigure}[b]{0.47\linewidth}
+%     \includegraphics[width=\linewidth]{images/subst2/pdf_subst2_10.png}
+%     \caption{}
+%   \end{subfigure}
+%   \begin{subfigure}[b]{0.47\linewidth}
+%     \includegraphics[width=\linewidth]{images/subst2/pdf_subst2_8.png}
+%     \caption{}
+%   \end{subfigure}
+%   \begin{subfigure}[b]{0.47\linewidth}
+%     \includegraphics[width=\linewidth]{images/subst2/pdf_subst2_6.png}
+%     \caption{}
+%   \end{subfigure}
+%   \begin{subfigure}[b]{0.47\linewidth}
+%     \includegraphics[width=\linewidth]{images/subst2/pdf_subst2_4.png}
+%     \caption{}
+%   \end{subfigure}
+%   \caption{Envy distribution curve for Substituting type 2 Utilities}
+%   \label{fig_efk_dist_curve_subst2}
+%   \small
+%     Envy distribution of the entire sample space with substituting utilities type 2 after dropping 0, 1, and 2 goods for number of goods (a) $m = 10$, (b) $m = 8$, (c) $m = 6$, (d) $m = 4$
+% \end{figure}
 
 
 Figure 8-11 plot the distributions of envy for simulated 1000 samples. As discussed about other plots, the decrease in number of goods can directly be seen in increase in number of envied allocations. These curves give a nice shape to the envy calculations before and after dropping goods for EF0, EF1, and EF2 calculations. Figure 8-11 show both, final envy after dropping the good and that sorted on the sampling x-axis which forms a smooth shape with rest of the distribution curve.
@@ -656,31 +656,242 @@ Figure 8-11 plot the distributions of envy for simulated 1000 samples. As discus
 
 \section{MNW and EFk}
 \label{section_proof}
+
 In this section, we analyze the relation between maximum Nash welfare and envy-freeness up to k goods.
 
 We already know MNW allocations for additive utility values are envy-free up to one good (EF1) \cite{caragiannis2016unreasonable}. The experiments on goods with additive utilities in previous section provide the experimental evidence to that fact.
 
 In previous section, we conduct experiments on complementary and substitute goods. We have simulated the complements and substitutes of the goods in the market in terms of the dependency of utility valuation for pairs of goods. An interesting fact emerge from the plots is that, all of the MNW allocations are envy-freeness up to 2 goods.
 
-We classify complementary and substitute valuations as bonded goods.
+We formally define the value of a set of goods $G$ which is part of a larger allocation of an agent $i$, $\mathcal{A}_i$ as below.
 
-\begin{definition}{Additively bonded goods valuation.}
-Bonded good is the good $x \in \mathcal{M}$ whose value $V_i(x), \forall i \in \mathcal{N}$ varies with whether the agent gets some other set of goods $Y \subseteq \mathcal{M}$ in allocation $\mathcal{A}$ or not and the value is additive.
+\begin{definition}{Value of goods given an allocation (W).}
+\label{def_dep_value}
+The value $W_i(G)$ of a set of goods $G$ for an agent $i \in \mathcal{N}$ given the allocation of the agent $i$, $\mathcal{A}_i$ is equal to the sum of the additive valuation of each good $g \in G$, collective valuation of dependencies $C \subseteq G$, and valuation of dependency that goods $G' \subseteq G$ may form with any set of goods $A' \subseteq \mathcal{A}_i$.
 \end{definition}
 
-To elaborate further, suppose each agent have a value for each of the goods. If we can get a total utility for an agent by adding his values mapped to the goods that the agent owns, we have additively bonded goods with dependency of up to 1 good (all goods depend on themselves and no one else). Now we introduce utility function which is computed based on the fact that an agent owns a pair of goods. In this case, if an agent owns a pair, the value will be different that if the agent owns any one of the goods from the pair. But the total utility for the allocation can still be computed by adding the value for the pair instead of the individual goods. We call this additively bonded goods with dependency of up to 2 goods. On the same lines, if we have a value defined for getting a set of $k$ goods and the total utility can still be computed by adding the value of $k$ goods instead of any of the subsets, that can be called as additively bonded goods with dependency of up to $k$ goods.
+\subsection{Pairwise complementing goods and EF2}
+\label{subsection_EF2_compl}
 
-The total utility of additively bonded goods with dependency of up to $k$ goods will be equal to the addition of values of subsets of the allocation.
+Extending the idea of EF1 of additive goods \cite{caragiannis2016unreasonable}, in this section, we formally state a generalized envy-freeness criteria for goods with pairwise complementing values.
+
+\begin{theorem}
+Every MNW allocation is envy-free up to 2 goods (EF2) for goods which show additive and complementing valuations based on the pair of adjacent goods.
+\end{theorem}
+
+\begin{proof}
+We approach this proof by contradiction. We start with a MNW allocation $\mathcal{A}$ being not EF2, so that agent $i$ envies agent $j$ even after removing 2 goods from agent $j$
+s allocation $\mathcal{A}_j$
+
+Following section \ref{section_complementary}, the value of a set of goods $G$ for agent $i$ showing pairwise complementing utilities is given by
+
+\[
+    V_i(G) = \sum_{l=1}^m \mathbbm{1}_{l \in G}V_{i,l}^{add} + \sum_{l=1}^{m/2} \mathbbm{1}_{\left(2l,2l+1\right) \in G}V_{i,l}^{com}
+\]
+
+where $V_{i,l}^{add}$ is the additive utility, $AU$ of agent $i \in \mathcal{N}$ for good $l \in \mathcal{M}$ allocated in $G$; $V_{i,l}^{com}$ is the complementing utility, $CU$ of agent $i \in \mathcal{N}$ for an adjacent pair of goods $\left(2l,2l+1\right) \in \mathcal{M}$ allocated in $G$.
+
+Let such pairs of goods be represented as $G = \{l_x, l_y\}$.
+
+Let $\mathcal{A}'$ denote the allocation obtained by moving a pair of good $\{l_x, l_y\}$ from agent $j$ to agent $i$ in $\mathcal{A}$. So, $\mathcal{A}_i' = \mathcal{A}_i \cup \{l_x, l_y\} $ and $\mathcal{A}_j' = \mathcal{A}_j\backslash \{l_x, l_y\}$.
+
+The value of the pair of goods $G = \{l_x, l_y\}$ for agents $i$ given its allocations $\mathcal{A}_i$ is
+
+\[
+    W_i(G=\{l_x,l_y\}) = 
+    \begin{gathered}
+        V_{i,l_x}^{add} + V_{i,l_y}^{add} \\
+        + \mathbbm{1}_{l_{x \pm 1} \in \mathcal{A}_i}V_{i,l_{x,x\pm 1}}^{com} \\
+        + \mathbbm{1}_{l_{y \pm 1} \in \mathcal{A}_i}V_{i,l_{y,y\pm 1}}^{com} \\
+        + \mathbbm{1}_{l_y = l_{x \pm 1}}V_{i,l_{x,y}}^{com}
+    \end{gathered}
+\]
+
+In other words, by definition \ref{def_dep_value}, the value of goods $G = \{l_x, l_y\}$ is sum of additive utilities of $l_x$ and $l_y$, the value of complements that $l_x$ and $l_y$ may form with goods in the allocation of agent $i$, $\mathcal{A}_i$, and the value of complements $l_x$ and $l_y$ may form with each other.
+
+So the values of new allocations $\mathcal{A}_i'$ and $\mathcal{A}_j'$ is:
+
+\[
+    V_i(\mathcal{A}_i') = V_i(\mathcal{A}_i) + W_i(\{l_x, l_y\})
+\]
+\[
+    V_j(\mathcal{A}'_j) = V_j(\mathcal{A}_j) - W_j(\{l_x, l_y\})
+\]
+
+The new values of allocations for agents $i$ and $j$ will be given by:
+
+\[
+    V_i(\mathcal{A}_i') = V_i(\mathcal{A}_i) + V_{i,l_x}^{add} + V_{i,l_y}^{add}
+\]\[
+    + \mathbbm{1}_{l_{x \pm 1} \in \mathcal{A}_i}V_{i,l_{x,x\pm 1}}^{com}
+\]\[
+    + \mathbbm{1}_{l_{y \pm 1} \in \mathcal{A}_i}V_{i,l_{y,y\pm 1}}^{com}
+\]\[
+    + \mathbbm{1}_{l_y = l_{x \pm 1}}V_{i,l_{x,y}}^{com}
+\]
+
+\[
+    V_j(\mathcal{A}'_j) = V_j(\mathcal{A}_j) - V_{j,l_x}^{add} - V_{j,l_y}^{add}
+\]\[
+    - \mathbbm{1}_{l_{x \pm 1} \in \mathcal{A}_j}V_{j,l_{x,x\pm 1}}^{com}
+\]\[
+    - \mathbbm{1}_{l_{y \pm 1} \in \mathcal{A}_j}V_{j,l_{y,y\pm 1}}^{com}
+\]\[
+    - \mathbbm{1}_{l_y = l_{x \pm 1}}V_{j,l_{x,y}}^{com}
+\]
+
+Here, the value for agent $i$ increases by the additive utilities of the two new goods $\{l_x, l_y\}$ and the complementing utilities of the complements that $l_x$ and $l_y$ may form with agent $i$'s existing goods and with each other. Agent $j$'s value decreases in the similar way. 
+
+We define a new entity to represent this change.
+
+\begin{definition}{Value of goods given allocation (W).}
+\label{def_dep_value}
+The value $W_i(G)$ of a set of goods $G$ for an agent $i \in \mathcal{N}$ given the allocation $\mathcal{A}_i$ is equal to the sum of the additive valuation of each good $g \in G$, collective valuation of dependent goods $C \subseteq G$, and valuation of dependency that goods $g \in G$ may form with any of the goods $a \in \mathcal{A}_i$.
+\end{definition}
+
+
+We represent this change with $\Delta_i$ and $\Delta_j$. So,
+
+\[
+    V_i(\mathcal{A}_i') = V_i(\mathcal{A}_i) + \Delta_i
+\]
+\[
+    V_j(\mathcal{A}'_j) = V_j(\mathcal{A}_j) - \Delta_j
+\]
+
+For all other agents $p$ who are not a part of the exchange, the value of allocation $\mathcal{A}_p$ does not change. That is, 
+\[
+    \forall p \in \mathcal{N}\backslash\{i,j\}, V_p(\mathcal{A}'_p) = V_p(\mathcal{A}_p)
+\]
+
+With this movement of goods, we need to show that $NW(\mathcal{A}') > NW(\mathcal{A})$, which will contradict the optimality of maximum Nash welfare assumption of $\mathcal{A}$ that we began with.
+
+\[
+    NW(\mathcal{A}') > NW(\mathcal{A})
+\]
+is equivalent to
+\[
+    \frac{NW(\mathcal{A}')}{NW(\mathcal{A})} > 1
+\]
+The ratio is valid, as we define $NW(\mathcal{A}) > 0$ always valid in definition \ref{def_nw}.
+
+$$
+    \frac{NW(\mathcal{A}')}{NW(\mathcal{A})} > 1 \Leftrightarrow \left[ \frac{V_i(\mathcal{A}_i) + \Delta_i}{V_i(\mathcal{A}_i)} \right] \cdot \left[ \frac{V_j(\mathcal{A}_j) - \Delta_j}{V_j(\mathcal{A}_j)} \right] > 1
+$$
+$$\Updownarrow $$
+$$
+    \left[1 + \frac{\Delta_i}{V_i(\mathcal{A}_i)}\right] \cdot \left[1 - \frac{\Delta_j}{V_j(\mathcal{A}_j)}\right] > 1
+$$
+$$\Updownarrow $$
+$$
+    \cancel{1} + \frac{\Delta_i}{V_i(\mathcal{A}_i)} - \frac{\Delta_j}{V_j(\mathcal{A})_j} - \frac{\Delta_j \Delta_i}{V_j(\mathcal{A}_j) V_i(\mathcal{A}_i)} > \cancel{1}
+$$
+$$\Updownarrow $$
+$$
+    \frac{\Delta_i}{V_i(\mathcal{A}_i)} > \frac{\Delta_j}{V_j(\mathcal{A})_j} + \frac{\Delta_j \Delta_i}{V_j(\mathcal{A}_j) V_i(\mathcal{A}_i)}
+$$
+$$\Updownarrow $$
+$$
+    V_j(\mathcal{A}_j) > \frac{V_i(\mathcal{A}_i)}{\Delta_i} \Delta_j + \frac{\cancel{V_i(\mathcal{A}_i)}}{\cancel{\Delta_i}} \frac{\Delta_j \cancel{\Delta_i}}{\cancel{V_i(\mathcal{A}_i)}}
+$$
+$$\Updownarrow $$
+
+\begin{equation}
+\label{eq_prooffinal}
+    \frac{\Delta_j}{\Delta_i} \cdot \left[V_i(\mathcal{A}_i) + \Delta_i \right] < V_j(\mathcal{A}_j)
+\end{equation}
+
+Let $\{l_x^*, l_y^*\}$ be two goods such that,
+\[
+    \{l_x^*, l_y^*\} = \operatorname{arg\,min}_{l_x,l_y \in \mathcal{A}_j} \frac{V_j(l_x,l_y)}{V_i(l_x,l_y)}
+\]
+Here, $\{l_x^*, l_y^*\}$ are well defined because agent $i$ envying agent $j$ after dropping 2 goods from agent $j$'s allocation $\mathcal{A}_j$ implies agent $i$ has positive value for at least 2 goods in the allocation of agent $j$.
+
+\[
+    V_i(l_x,l_y) = 
+    \begin{gathered}
+        V_{i,l_x}^{add} + V_{i,l_y}^{add} \\
+        + \mathbbm{1}_{l_{x \pm 1} \in \mathcal{A}_i}V_{i,l_{x,x\pm 1}}^{com} \\
+        + \mathbbm{1}_{l_{y \pm 1} \in \mathcal{A}_i}V_{i,l_{y,y\pm 1}}^{com} \\
+        + \mathbbm{1}_{l_y = l_{x \pm 1}}V_{i,l_{x,y}}^{com}
+    \end{gathered}
+    = \Delta_i
+\]
+
+\[
+    V_j(l_x,l_y) = 
+    \begin{gathered}
+        V_{j,l_x}^{add} + V_{j,l_y}^{add} \\ 
+        + \mathbbm{1}_{l_{x \pm 1} \in \mathcal{A}_j}V_{j,l_{x,x\pm 1}}^{com} \\
+        + \mathbbm{1}_{l_{y \pm 1} \in \mathcal{A}_j}V_{j,l_{y,y\pm 1}}^{com} \\
+        + \mathbbm{1}_{l_y = l_{x \pm 1}}V_{j,l_{x,y}}^{com}
+    \end{gathered}
+    = \Delta_j
+\]
+
+using the simple algebraic property for ratio and the choice of $\{l_x^*, l_y^*\}$,
+\begin{equation}
+\label{eq_proofmul1}
+    \frac{V_j(l_x^*, l_y^*)}{V_i(l_x^*, l_y^*)} = \frac{\Delta_j}{\Delta_i} \leq \frac{\sum_{l_x,l_y \in \mathcal{A}_j}V_j(l_x,l_y)}{\sum_{l_x,l_y \in \mathcal{A}_j}V_i(l_x,l_y)} = \frac{V_j(\mathcal{A}_j)}{V_i(\mathcal{A}_j)}
+\end{equation}
+
+Since agent $i$ envies agent $j$ even after removing $\{l_x^*, l_y^*\}$ from agent $j$'s allocation, we can write,
+\begin{equation}
+\label{eq_proofmul2}
+\begin{gathered}
+    V_i(\mathcal{A}_i) < v_i(\mathcal{A}_j) - V_i(l_x^*, l_y^*) \\
+    V_i(\mathcal{A}_i) + V_i(l_x^*, l_y^*) < V_i(\mathcal{A}_j)
+\end{gathered}
+\end{equation}
+
+Multiplying equations \ref{eq_proofmul1} and \ref{eq_proofmul2}, gives us equation \ref{eq_prooffinal} required to prove the theorem.
+
+\end{proof}
+
+\hline
+
+
+
+In this section, we analyze the relation between maximum Nash welfare and envy-freeness up to k goods.
+
+We already know MNW allocations for additive utility values are envy-free up to one good (EF1) \cite{caragiannis2016unreasonable}. The experiments on goods with additive utilities in previous section provide the experimental evidence to that fact.
+
+In previous section, we conduct experiments on complementary and substitute goods. We have simulated the complements and substitutes of the goods in the market in terms of the dependency of utility valuation for pairs of goods. An interesting fact emerge from the plots is that, all of the MNW allocations are envy-freeness up to 2 goods.
+
+We classify complementary and substitute valuations as additively bonded goods.
+
+\begin{definition}{Additively bonded goods valuation.}
+Additively bonded good is the good $x \in \mathcal{M}$ whose value $V_i(x), \forall i \in \mathcal{N}$ varies with whether the agent $i$ gets some other set of goods $Y \subseteq \mathcal{M}$ in given allocation $\mathcal{A}_i$ or not and the value is additive. The total utility of additively bonded goods with dependency of up to $k$ goods can be computed by maximizing the addition of values of subsets of the allocation.
 
 \begin{equation}
 \label{eq_abgv}
 \begin{gathered}
-    V_i(\mathcal{A}_i) = \operatorname{maximize} \sum_{j=0}^{k-1} V^{k-j}_i(\mathcal{A}^{k-j}_i) \\
-    V_i(\mathcal{A}_i) = \operatorname{maximize} V^k_i(\mathcal{A}^k_i) + V^{k-1}_i(\mathcal{A}^{k-1}_i) + ... + V^1_i(\mathcal{A}^{1}_i)
+    V_i(\mathcal{A}_i) = \operatorname{maximize} V^k_i(\mathcal{A}^k_i) + V^{k-1}_i(\mathcal{A}^{k-1}_i) + ... + V^1_i(\mathcal{A}^{1}_i) \\
+    V_i(\mathcal{A}_i) = \operatorname{maximize} \sum_{j=0}^{k-1} V^{k-j}_i(\mathcal{A}^{k-j}_i)
 \end{gathered}
 \end{equation}
 
-where $V$ is the valuation of allocation $\mathcal{A}$ for agent $i$. 
+where $V^j_i(\mathcal{A}_i^{j})$ represents the collective value of $j$ dependent goods, $V^j_i$ subject to grouping of $j$ goods, $\mathcal{A}_i^j$ in allocation $\mathcal{A}_i$ of agent $i$. This is true if the valuation of goods is defined for the dependency k at the granularity of 1.
+
+In general, for some combination of dependencies given by K,
+$$
+\forall j \in K \text{, } \mathcal{A}_i^{j} \in G \text{ where, } \mathcal{A}_i \mapsto G = \{G' \subseteq \mathcal{A}_j \, \mid \, \lvert G'\rvert \in K\}
+$$
+
+And the total value is given by,
+$$
+    V_i(\mathcal{A}_i) = \operatorname{maximize} \sum_{j \in K} V_i^j(\mathcal{A}_i^j)
+$$
+
+With granularity of 1, K = (0, k]. So, it reduces to
+$$
+\forall j \in (0, k] \text{, } \mathcal{A}_i^{j} \in G \text{ where, } \mathcal{A}_i \mapsto G = \{G' \subseteq \mathcal{A}_j \, \mid \, \lvert G'\rvert \leq k\}
+$$
+and Eq. \ref{eq_abgv}
+
+\end{definition}
+
+To elaborate further, suppose each agent have a value for each of the goods. If we can get a total utility for an agent by adding his values mapped to the goods that the agent owns, we have additively bonded goods with dependency of up to 1 good (all goods depend on themselves and no one else). Now we introduce utility function which is computed based on the fact that an agent owns a pair of goods. In this case, if an agent owns a pair, the value will be different than that if the agent owns any one of the goods from the pair. But the total utility for the allocation can still be computed by adding the value for the pair instead of the individual goods. We call this additively bonded goods with dependency of up to 2 goods. On the same lines, if we have a value defined for getting a set of $k$ goods, then the total utility can be computed by adding the value of $k$ goods instead of any of the subsets That will be additively bonded goods with dependency of up to $k$ goods.
 
 Extending the idea of EF1 of additive goods \cite{caragiannis2016unreasonable}, in this section, we formally affirm the envy-freeness up to $k$ goods (EFk) for additively bonded goods with dependency of up to $k$ goods.
 
@@ -689,13 +900,23 @@ Every MNW allocation is envy free up to $k$ goods (EFk), for additively bonded v
 \end{theorem}
 
 \begin{proof}
-By definition \ref{def_efk}, for all agent's $i, j \in \mathcal{N}$, an EFk allocation contains an agent $i$ who envies some agent $j$ even after dropping $k-1$ goods from agent $j$'s allocation and stops envying after dropping $k$th good. Also, if an allocation is EFk, then definition \ref{def_efk} permits the allocation to be EF(k+$i$) for $0 \leq i \leq |\mathcal{M}|$. So the only assertion to prove is guaranteed existence of EFk.
+By definition \ref{def_efk}, an EFk allocation contains an agent $i \in \mathcal{N}$ who envies some agent $j \in \mathcal{N}$, even after dropping $k-1$ goods from agent $j$'s allocation and stops envying after dropping $k$th good. Also, if an allocation is EFk, then definition \ref{def_efk} permits the allocation to be EF(k+$i$) for $0 \leq i \leq |\mathcal{M}|$. So the only assertion to prove is guaranteed existence of EFk.
 
 We approach this proof by contradiction. We start with a MNW allocation $\mathcal{A}$ being not EFk, so that agent $i$ envies agent $j$ even after removing $k$ goods from agent $j$'s allocation $\mathcal{A}_j$.
 
-Let $G^* = \operatorname{arg\,min}_{G \subseteq \mathcal{A}_j, |G| \leq k, V_i(G)>0} V_j(G)/V_i(G)$. $G^*$ is a set of goods such that $|G| \leq k$. $G^*$ is well-defined because agent $i$ envying agent $j$ implies that agent $i$ has a positive envy for a set of at most $k$ goods in the allocation of agent $j$, $\mathcal{A}_j$. 
 
-Let $\mathcal{A}'$ denote the allocation obtained from moving $G^*$ from agent $j$ to agent $i$ in $\mathcal{A}$. With this movement, we need to show $NW(\mathcal{A}') > NW(\mathcal{A})$, which will contradict the optimality of MNW assumption of $\mathcal{A}$ we began with.
+% Let $G^* = \operatorname{arg\,min}_{G \subseteq \mathcal{A}_j, |G| \leq k, V_i(G)>0} V_j(G)/V_i(G)$. $ g \mapsto G = \{g' \subseteq g \mid \lvert g'\rvert \leq k\}$. So $|G^*| \leq k$. $G^*$ is well-defined because agent $i$ envying agent $j$ implies that agent $i$ has a positive envy for a set of at most $k$ goods in the allocation of agent $j$, $\mathcal{A}_j$. 
+
+Let $G^*$  be a set of goods such that,
+\[
+    G^* = \operatorname{arg\,min}_{\mathcal{A}_j \mapsto G = \{G' \subseteq \mathcal{A}_j \, \mid \, \lvert G'\rvert \leq k\}, V_i(G)>0} V_j(G)/V_i(G)
+\]
+
+Here, $G$ is a set of all such subsets of $\mathcal{A}_j$ which represents goods positively valued by agent $i$. If the granularity of dependency is 1 and value is defined for all dependencies $x \in (0, k]$, then $G$ will represent a set of all combinations of $x$ elements $\forall x \in (0, k]$. So the size of $G$, $|G| = {{|\mathcal{A}_j|}\choose k}$. Also, $|G^*| \leq k$. $G^*$ is well-defined because agent $i$ envying agent $j$ even after dropping $k$ goods implies that agent $i$ has a positive envy for a set of $k$ goods in the allocation of agent $j$, $\mathcal{A}_j$.
+
+$V_i(G^*)$ and $V_j(G^*)$ are both positive, non-zero entities because: 1) Eq. \ref{eq_abgv} maximizes the value for all possible subsets 2) even if a set of goods create negative value, Eq. \ref{eq_abgv} will try further down the grouping granularity for maximization 3) we always start our base case with agents valuing goods positively for both additive and complementing utilities, and both substitute utilities yield positive values if fed with positive additive utilities. 
+
+Let $\mathcal{A}'$ denote the allocation obtained from moving $G^*$ from agent $j$ to agent $i$ in $\mathcal{A}$. With this movement, we need to show $NW(\mathcal{A}') > NW(\mathcal{A})$, which will contradict the optimality of MNW assumption of $\mathcal{A}$ that we began with.
 $$
     NW(\mathcal{A}') > NW(\mathcal{A})
 $$
@@ -707,25 +928,42 @@ The ratio is valid, as we define $NW(\mathcal{A}) > 0$ always valid in definitio
 
 For all other agents $p$ not a part of the exchange, the value of allocation $\mathcal{A}_p$ does not change. That is, $\forall p \in \mathcal{N}\backslash\{i,j\}, V_p(\mathcal{A}'_p) = V_p(\mathcal{A}_p)$
 
-Since MNW is Pareto optimal (PO) and goods are additively bonded for some $G^*, |G| \leq k$, we can write,
+MNW is Pareto optimal (PO) for dependent goods. Similar to additive goods, this can be proven trivially for complementary dependency with the fact that if we try to increase value of agent $i$ by moving one good $g$ from the allocation of agent $j$, the value of agent $j$ will decrease regardless of the fact that the good $g$ was a part of independent valuation or the valuation in combination with some other good $g'$. If it does not decrease, we will get a higher valuation for the allocation and that contradicts the maximization of Nash welfare to start with. Though not as intuitive as others, generally similar reasoning can be given for both types of substitute goods that if there exist a better valued solution without making other agents worse, MNW will maximize it in the beginning.
+
+Since MNW is Pareto optimal (PO) and goods are additively bonded for some $G^*$ over $G \ni \mathcal{A}_j \mapsto G = \{G' \subseteq \mathcal{A}_j \, \mid \, \lvert G'\rvert \leq k\}, V_i(G)>0$, we can write,
 $$
     V_i(\mathcal{A}'_i) = V_i(\mathcal{A}_i) + V_i(G^*)
 $$
 $$
     V_j(\mathcal{A}'_j) = V_j(\mathcal{A}_j) - V_j(G^*)
 $$
-Here, $V(G^*)$ represents maximum value derived by agents $i$ and $j$ from $G^*$ for $|G| \leq k$
+Here, $V(G^*)$ represents maximum value derived by agents $i$ and $j$ from $G^*$. Valuation of both agents for their allocations and set of goods $G^*$ follows Eq. \ref{eq_abgv}.
 
 So, backing up to the ratio of Nash welfare of the original and the modified allocations,
 
+$$
+    \frac{NW(\mathcal{A}')}{NW(\mathcal{A})} > 1 \Leftrightarrow \left[ \frac{V_i(\mathcal{A}_i) + V_i(G^*)}{V_i(\mathcal{A}_i)} \right] \cdot \left[ \frac{V_j(\mathcal{A}_j) - V_j(G^*)}{V_j(\mathcal{A}_j)} \right] > 1
+$$
+$$\Updownarrow $$
+$$
+    \left[1 - \frac{V_j(G^*)}{V_j(\mathcal{A}_j)}\right] \cdot \left[1 + \frac{V_i(G^*)}{V_i(\mathcal{A}_i)}\right] > 1
+$$
+$$\Updownarrow $$
+$$
+    1 + \frac{V_i(G^*)}{V_i(\mathcal{A}_i)} - \frac{V_j(G^*)}{V_j(\mathcal{A})_j} - \frac{V_j(G^*) V_i(G^*)}{V_j(\mathcal{A}_j) V_i(\mathcal{A}_i)} > 1
+$$
+$$\Updownarrow $$
+$$
+    \frac{V_i(G^*)}{V_i(\mathcal{A}_i)} > \frac{V_j(G^*)}{V_j(\mathcal{A})_j} + \frac{V_j(G^*) V_i(G^*)}{V_j(\mathcal{A}_j) V_i(\mathcal{A}_i)}
+$$
+$$\Updownarrow $$
+$$
+    V_j(\mathcal{A}_j) > \frac{V_i(\mathcal{A}_i)}{V_i(G^*)} V_j(G^*) + \frac{\cancel{V_i(\mathcal{A}_i)}}{\cancel{V_i(G^*)}} \frac{V_j(G^*) \cancel{V_i(G^*)}}{\cancel{V_i(\mathcal{A}_i)}}
+$$
+$$\Updownarrow $$
 \begin{equation}
 \label{eq_prooffinal}
-\begin{gathered}
-    \frac{NW(\mathcal{A}')}{NW(\mathcal{A})} > 1 \Leftrightarrow \left[ \frac{V_i(\mathcal{A}_i) + V_i(G^*)}{V_i(\mathcal{A}_i)} \right] \left[ \frac{V_j(\mathcal{A}_j) - V_j(G^*)}{V_j(\mathcal{A}_j)} \right] > 1 \\
-    \Leftrightarrow \left[1 - \frac{V_j(G^*)}{V_j(\mathcal{A}_j)}\right] \cdot \left[1 + \frac{V_i(G^*)}{V_i(\mathcal{A}_i)}\right] > 1 \\
-    \Leftrightarrow 1 + \frac{V_i(G^*)}{V_i(\mathcal{A}_i)} - \frac{V_j(G^*)}{V_j(\mathcal{A})_j} - \frac{V_j(G^*) V_i(G^*)}{V_j(\mathcal{A}_j) V_i(\mathcal{A}_i)} > 1 \\
-    \Leftrightarrow \frac{V_j(G^*)}{V_i(G^*)} \cdot \left[V_i(\mathcal{A}_i) + V_i(G^*) \right] < V_j(\mathcal{A}_j)
-\end{gathered}
+    \frac{V_j(G^*)}{V_i(G^*)} \cdot \left[V_i(\mathcal{A}_i) + V_i(G^*) \right] < V_j(\mathcal{A}_j)
 \end{equation}
 
 using the simple algebraic property for ratio, choice of $G^*$ and equation \ref{eq_abgv}
@@ -734,7 +972,7 @@ using the simple algebraic property for ratio, choice of $G^*$ and equation \ref
     \frac{V_j(G^*)}{V_i(G^*)} \leq \frac{\sum_{G \in \mathcal{A}_j}V_j(G)}{\sum_{G \in \mathcal{A}_j}V_i(G)} = \frac{V_j(\mathcal{A}_j)}{V_i(\mathcal{A}_j)}
 \end{equation}
 
-Since agent $i$ envies $j$ even after removing $g^*$ from agent $j$'s allocations, we can write,
+Since agent $i$ envies $j$ even after removing $G^*$ from agent $j$'s allocations, we can write,
 \begin{equation}
 \label{eq_proofmul2}
 \begin{gathered}
